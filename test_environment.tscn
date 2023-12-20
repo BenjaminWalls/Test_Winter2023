@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://04m5y8xj8xtj"]
+
+[ext_resource type="Texture2D" uid="uid://cgpxe22ilri4d" path="res://Assets/bubble.png" id="1_2m6f8"]
+[ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
+[ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
+[ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
+[ext_resource type="Texture2D" uid="uid://cvia81dmv2dfs" path="res://Assets/TileMap/cobble.png" id="6_36pl0"]
+[ext_resource type="Texture2D" uid="uid://cfn31mr0iecr" path="res://Assets/TileMap/grass-and-dirt.png" id="7_bp6dm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsy11"]
+radius = 32.0156
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01r3q"]
+texture = ExtResource("6_36pl0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtd6k"]
+texture = ExtResource("7_bp6dm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_snb6r"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_01r3q")
+sources/1 = SubResource("TileSetAtlasSource_vtd6k")
+
+[node name="TestEnvironment" type="Node2D"]
+
+[node name="Air" type="Node2D" parent="."]
+position = Vector2(67, -36)
+script = ExtResource("1_vih7h")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Air"]
+texture_filter = 1
+texture = ExtResource("1_duac7")
+
+[node name="PushBubble" type="RayCast2D" parent="Air"]
+target_position = Vector2(161, 0)
+script = ExtResource("3_1jbyb")
+
+[node name="Bubble" type="Node2D" parent="."]
+position = Vector2(121, 53)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bubble"]
+texture_filter = 1
+texture = ExtResource("1_2m6f8")
+
+[node name="Camera2D" type="Camera2D" parent="Bubble"]
+zoom = Vector2(1.15, 1.15)
+
+[node name="BubbleRigid" type="RigidBody2D" parent="Bubble"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/BubbleRigid"]
+shape = SubResource("CircleShape2D_lsy11")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_snb6r")
+format = 2
+layer_0/tile_data = PackedInt32Array(7, 0, 0, 65543, 0, 0, 131079, 0, 0, 131080, 0, 0, 65544, 0, 0, 8, 0, 0)

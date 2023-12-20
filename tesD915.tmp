@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://04m5y8xj8xtj"]
+
+[ext_resource type="Texture2D" uid="uid://cgpxe22ilri4d" path="res://Assets/bubble.png" id="1_2m6f8"]
+[ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
+[ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
+[ext_resource type="Script" path="res://BubbleRigid.gd" id="3_yf4dh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsy11"]
+radius = 32.0156
+
+[node name="TestEnvironment" type="Node2D"]
+
+[node name="Air" type="Node2D" parent="."]
+position = Vector2(67, -36)
+script = ExtResource("1_vih7h")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Air"]
+texture_filter = 1
+texture = ExtResource("1_duac7")
+
+[node name="Bubble" type="Node2D" parent="."]
+position = Vector2(121, 53)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bubble"]
+texture_filter = 1
+texture = ExtResource("1_2m6f8")
+
+[node name="Camera2D" type="Camera2D" parent="Bubble"]
+zoom = Vector2(1.15, 1.15)
+
+[node name="BubbleRigid" type="RigidBody2D" parent="Bubble"]
+gravity_scale = 0.0
+script = ExtResource("3_yf4dh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/BubbleRigid"]
+shape = SubResource("CircleShape2D_lsy11")
