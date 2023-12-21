@@ -47,6 +47,8 @@ texture = ExtResource("1_duac7")
 target_position = Vector2(161, 0)
 script = ExtResource("3_1jbyb")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
+
 [node name="Bubble" type="Node2D" parent="."]
 position = Vector2(121, 53)
 metadata/_edit_group_ = true
