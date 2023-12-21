@@ -15,5 +15,7 @@ func _process(delta):
 	# Adding force when raycast detects bubble and mouse button pressed
 	if get_collider()==get_parent().get_parent().get_node("Bubble/BubbleRigid") and Input.is_action_pressed("Blow_air"):
 		get_parent().get_parent().get_node("Bubble/BubbleRigid").apply_central_force(-Mouse_Position*1.1)
+		get_parent().get_node("GPUParticles2D").emitting=true
 	elif(velocity!=Vector2(0,0)): # This is for stopping the bubble to a halt when not pushing air.
 		get_parent().get_parent().get_node("Bubble/BubbleRigid").set_linear_velocity(lerp(velocity,Vector2(0,0),0.001))
+		get_parent().get_node("GPUParticles2D").emitting=false
