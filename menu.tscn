@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://g4of3mhl7hk5"]
+
+[ext_resource type="Texture2D" uid="uid://cgpxe22ilri4d" path="res://Assets/bubble.png" id="1_nx6ie"]
+[ext_resource type="Texture2D" uid="uid://5i4hmko83x33" path="res://bubparticles_1.tres" id="1_p47ug"]
+[ext_resource type="Material" uid="uid://bf31f48pwss1f" path="res://bubparticles_2.tres" id="3_qdtf8"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pd1lj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = ExtResource("1_p47ug")
+gravity = Vector3(0, 0, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.501961, 1, 1, 0.47451)
+position = Vector2(590, 682)
+amount = 9
+process_material = SubResource("ParticleProcessMaterial_pd1lj")
+texture = ExtResource("1_nx6ie")
+lifetime = 14.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.443137)
+position = Vector2(590, 682)
+amount = 10
+process_material = ExtResource("3_qdtf8")
+texture = ExtResource("1_nx6ie")
+lifetime = 14.0

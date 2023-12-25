@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brik6b3ul51ek"
-path="res://.godot/imported/Sprite-0001.png-c16feda97667151f1a063931ff67e2cc.ctex"
+uid="uid://jhl5rqwqoo6x"
+path="res://.godot/imported/bubble_popped-Sheet.png-3bbeb044524c7dedc2f384cce565f662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-c16feda97667151f1a063931ff67e2cc.ctex"]
+source_file="res://Assets/bubble_popped-Sheet.png"
+dest_files=["res://.godot/imported/bubble_popped-Sheet.png-3bbeb044524c7dedc2f384cce565f662.ctex"]
 
 [params]
 

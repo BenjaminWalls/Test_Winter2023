@@ -1,8 +1,7 @@
 extends RayCast2D
 
 var Mouse_Position
-var Bubble_Position
-var force=1
+var force = 1
 var velocity
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

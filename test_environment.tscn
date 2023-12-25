@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=20 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://cgpxe22ilri4d" path="res://Assets/bubble.png" id="1_2m6f8"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
 [ext_resource type="Texture2D" uid="uid://cvia81dmv2dfs" path="res://Assets/TileMap/cobble.png" id="6_36pl0"]
 [ext_resource type="Texture2D" uid="uid://dd6lwlx6tk7uv" path="res://Assets/cloud.png" id="6_khqjb"]
+[ext_resource type="Script" path="res://Bubble.gd" id="7_3uix7"]
 [ext_resource type="Texture2D" uid="uid://cfn31mr0iecr" path="res://Assets/TileMap/grass-and-dirt.png" id="7_bp6dm"]
+[ext_resource type="Texture2D" uid="uid://jhl5rqwqoo6x" path="res://Assets/bubble_popped-Sheet.png" id="8_1usly"]
+[ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01r3q"]
 texture = ExtResource("6_36pl0")
@@ -43,8 +46,41 @@ scale_min = 0.1
 scale_max = 0.3
 color = Color(0.717647, 0.996078, 0.976471, 0.329412)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwfvb"]
+atlas = ExtResource("8_1usly")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6fll"]
+atlas = ExtResource("8_1usly")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esfns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwfvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6fll")
+}],
+"loop": false,
+"name": &"Pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2m6f8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsy11"]
 radius = 32.0156
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_buygo"]
+radius = 30.1496
 
 [node name="TestEnvironment" type="Node2D"]
 
@@ -56,14 +92,14 @@ layer_0/tile_data = PackedInt32Array(-327689, 0, 0, -262153, 0, 0, -196617, 0, 0
 [node name="Air" type="Node2D" parent="."]
 position = Vector2(66, -33)
 script = ExtResource("1_vih7h")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Air"]
 texture_filter = 1
 texture = ExtResource("1_duac7")
 
 [node name="PushBubble" type="RayCast2D" parent="Air"]
-target_position = Vector2(161, 0)
+position = Vector2(32, 0)
+target_position = Vector2(125, 0)
 script = ExtResource("3_1jbyb")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
@@ -76,6 +112,7 @@ lifetime = 0.08
 
 [node name="Bubble" type="Node2D" parent="."]
 position = Vector2(121, 53)
+script = ExtResource("7_3uix7")
 metadata/_edit_group_ = true
 
 [node name="BubbleRigid" type="RigidBody2D" parent="Bubble"]
@@ -84,9 +121,26 @@ gravity_scale = 0.0
 [node name="Camera2D" type="Camera2D" parent="Bubble/BubbleRigid"]
 zoom = Vector2(1.15, 1.15)
 
-[node name="Sprite2D" type="Sprite2D" parent="Bubble/BubbleRigid"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble/BubbleRigid"]
 texture_filter = 1
-texture = ExtResource("1_2m6f8")
+sprite_frames = SubResource("SpriteFrames_esfns")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/BubbleRigid"]
 shape = SubResource("CircleShape2D_lsy11")
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" type="Node2D" parent="Spikes"]
+position = Vector2(548, 12)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes/Spike"]
+texture_filter = 1
+texture = ExtResource("8_tvyur")
+
+[node name="Area2D" type="Area2D" parent="Spikes/Spike"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Spike/Area2D"]
+shape = SubResource("CircleShape2D_buygo")
+
+[connection signal="body_entered" from="Spikes/Spike/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
