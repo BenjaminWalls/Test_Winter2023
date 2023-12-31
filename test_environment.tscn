@@ -1,6 +1,5 @@
 [gd_scene load_steps=20 format=3 uid="uid://04m5y8xj8xtj"]
 
-[ext_resource type="Texture2D" uid="uid://cgpxe22ilri4d" path="res://Assets/bubble.png" id="1_2m6f8"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
 [ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfn31mr0iecr" path="res://Assets/TileMap/grass-and-dirt.png" id="7_bp6dm"]
 [ext_resource type="Texture2D" uid="uid://jhl5rqwqoo6x" path="res://Assets/bubble_popped-Sheet.png" id="8_1usly"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
+[ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="9_1gjh6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01r3q"]
 texture = ExtResource("6_36pl0")
@@ -69,7 +69,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2m6f8")
+"texture": ExtResource("9_1gjh6")
 }],
 "loop": true,
 "name": &"default",
@@ -119,11 +119,12 @@ metadata/_edit_group_ = true
 gravity_scale = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="Bubble/BubbleRigid"]
-zoom = Vector2(1.15, 1.15)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble/BubbleRigid"]
 texture_filter = 1
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_esfns")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/BubbleRigid"]
