@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgpxe22ilri4d"
-path="res://.godot/imported/bubble.png-4f622bf5dead01ad02751fedd8e90ac4.ctex"
+uid="uid://imf6abdqwtp4"
+path="res://.godot/imported/inside.png-0b60b74500a1182f5a78a1a4878afc0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bubble.png"
-dest_files=["res://.godot/imported/bubble.png-4f622bf5dead01ad02751fedd8e90ac4.ctex"]
+source_file="res://Assets/TileMap/inside.png"
+dest_files=["res://.godot/imported/inside.png-0b60b74500a1182f5a78a1a4878afc0b.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

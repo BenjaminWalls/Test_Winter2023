@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvia81dmv2dfs"
-path="res://.godot/imported/cobble.png-bb0b161e6c51e0af750066ee64e7e37f.ctex"
+uid="uid://ltxb37tjd2yn"
+path="res://.godot/imported/corner.png-f97c86cacc3b5e3bf9a36442eec81686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileMap/cobble.png"
-dest_files=["res://.godot/imported/cobble.png-bb0b161e6c51e0af750066ee64e7e37f.ctex"]
+source_file="res://Assets/TileMap/corner.png"
+dest_files=["res://.godot/imported/corner.png-f97c86cacc3b5e3bf9a36442eec81686.ctex"]
 
 [params]
 
