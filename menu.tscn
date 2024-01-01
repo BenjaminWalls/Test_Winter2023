@@ -1,18 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://g4of3mhl7hk5"]
+[gd_scene load_steps=5 format=3 uid="uid://g4of3mhl7hk5"]
 
-[ext_resource type="Texture2D" path="res://Assets/bubble.png" id="1_nx6ie"]
-[ext_resource type="Texture2D" uid="uid://5i4hmko83x33" path="res://bubparticles_1.tres" id="1_p47ug"]
+[ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
+[ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="2_up3wy"]
 [ext_resource type="Material" uid="uid://bf31f48pwss1f" path="res://bubparticles_2.tres" id="3_qdtf8"]
 [ext_resource type="Material" uid="uid://c34kn43f8714j" path="res://bubparticles_3.tres" id="4_ud634"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pd1lj"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(500, 1, 1)
-directional_velocity_min = 1.0
-directional_velocity_max = 1.0
-directional_velocity_curve = ExtResource("1_p47ug")
-gravity = Vector3(0, 0, 0)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,30 +15,36 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.521569, 0.584314, 0.921569, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-modulate = Color(0.501961, 1, 1, 0.47451)
-position = Vector2(590, 682)
-amount = 9
-process_material = SubResource("ParticleProcessMaterial_pd1lj")
-texture = ExtResource("1_nx6ie")
-lifetime = 14.0
+modulate = Color(0.501961, 1, 1, 0.32549)
+texture_filter = 1
+position = Vector2(976, 1184)
+amount = 34
+process_material = ExtResource("1_p47ug")
+texture = ExtResource("2_up3wy")
+lifetime = 44.0
+visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-modulate = Color(1, 1, 1, 0.443137)
-position = Vector2(590, 682)
-amount = 10
+modulate = Color(0.243137, 0.168627, 1, 0.356863)
+texture_filter = 1
+position = Vector2(976, 1184)
+amount = 34
 process_material = ExtResource("3_qdtf8")
-texture = ExtResource("1_nx6ie")
-lifetime = 14.0
+texture = ExtResource("2_up3wy")
+lifetime = 44.0
+visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
-modulate = Color(1, 0.643137, 1, 0.443137)
-position = Vector2(590, 682)
-amount = 12
+modulate = Color(0.941176, 0.196078, 1, 0.305882)
+texture_filter = 1
+position = Vector2(976, 1184)
+amount = 34
 process_material = ExtResource("4_ud634")
-texture = ExtResource("1_nx6ie")
-lifetime = 14.0
+texture = ExtResource("2_up3wy")
+lifetime = 44.0
+visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)

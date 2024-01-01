@@ -13,5 +13,8 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	print("PLAY DEATH ANIMATION, NO NEED TO QUEUE FREE.")
 	$BubbleRigid/AnimatedSprite2D.play("Pop")
-	
+	Engine.set_time_scale(0.05)
+	await get_tree().create_timer(0.15).timeout
+	Engine.set_time_scale(1)
+	get_tree().reload_current_scene()
 	pass

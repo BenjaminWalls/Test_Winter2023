@@ -1,14 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=35 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
 [ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
 [ext_resource type="Texture2D" uid="uid://dd6lwlx6tk7uv" path="res://Assets/cloud.png" id="6_khqjb"]
 [ext_resource type="Script" path="res://Bubble.gd" id="7_3uix7"]
-[ext_resource type="Texture2D" uid="uid://jhl5rqwqoo6x" path="res://Assets/bubble_popped-Sheet.png" id="8_1usly"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="9_1gjh6"]
 [ext_resource type="Texture2D" uid="uid://ltxb37tjd2yn" path="res://Assets/TileMap/corner.png" id="9_f43ry"]
+[ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="10_75fcp"]
 [ext_resource type="Texture2D" uid="uid://imf6abdqwtp4" path="res://Assets/TileMap/inside.png" id="10_u5try"]
 [ext_resource type="Texture2D" uid="uid://bm6jyguv810nj" path="res://Assets/TileMap/slope.png" id="11_4p7cy"]
 [ext_resource type="Texture2D" uid="uid://d0dunx8tb2lfe" path="res://Assets/TileMap/wall.png" id="12_eth52"]
@@ -48,39 +48,107 @@ sources/2 = SubResource("TileSetAtlasSource_expms")
 sources/3 = SubResource("TileSetAtlasSource_qohs4")
 sources/4 = SubResource("TileSetAtlasSource_kisa8")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_af6eu"]
-particle_flag_disable_z = true
-angle_min = -291.2
-angle_max = 194.2
-direction = Vector3(100, 0, 0)
-flatness = 0.382
-initial_velocity_min = 1000.0
-initial_velocity_max = 1000.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.3
-color = Color(0.717647, 0.996078, 0.976471, 0.329412)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
+atlas = ExtResource("8_tvyur")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwfvb"]
-atlas = ExtResource("8_1usly")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_32ohi"]
+atlas = ExtResource("8_tvyur")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6fll"]
-atlas = ExtResource("8_1usly")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cywlp"]
+atlas = ExtResource("8_tvyur")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3168x"]
+atlas = ExtResource("8_tvyur")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ll2lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wnk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32ohi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cywlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3168x")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_buygo"]
+radius = 29.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ctm"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_marg1"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5bgy"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x54c"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqb3h"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nxio"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxkjn"]
+atlas = ExtResource("10_75fcp")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esfns"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lwfvb")
+"texture": SubResource("AtlasTexture_dyqt2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y6fll")
+"texture": SubResource("AtlasTexture_18ctm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_marg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5bgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x54c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqb3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nxio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxkjn")
 }],
 "loop": false,
 "name": &"Pop",
-"speed": 5.0
+"speed": 80.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -92,10 +160,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsy11"]
-radius = 32.0156
+radius = 30.0167
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_buygo"]
-radius = 30.1496
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_af6eu"]
+particle_flag_disable_z = true
+angle_min = -291.2
+angle_max = 194.2
+direction = Vector3(100, 0, 0)
+flatness = 0.382
+initial_velocity_min = 1500.0
+initial_velocity_max = 1500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color = Color(1, 0.996078, 0.976471, 0.152941)
 
 [node name="TestEnvironment" type="Node2D"]
 
@@ -106,26 +183,23 @@ tile_set = SubResource("TileSet_gmv1v")
 format = 2
 layer_0/tile_data = PackedInt32Array(-327670, 0, 0, -262134, 2, 0, -196597, 2, 0, -131060, 2, 0, -65523, 2, 0, -262133, 0, 0, -196596, 0, 0, -131059, 0, 0, -327671, 3, 0, -327672, 3, 0, -327673, 3, 0, -327674, 3, 0, -327675, 3, 0, -393211, 4, 0, -393210, 4, 0, -393209, 4, 0, -393208, 4, 0, -393207, 4, 0, -393206, 4, 0, -393205, 4, 0, -327669, 4, 0, -327668, 4, 0, -393204, 4, 0, -262132, 4, 0, -262131, 4, 0, -327667, 4, 0, -393203, 4, 0, -458739, 4, 0, -458740, 4, 0, -458741, 4, 0, -458742, 4, 0, -458743, 4, 0, -458744, 4, 0, -458745, 4, 0, -458746, 4, 0, -458747, 4, 0, -196595, 4, 0, -196594, 4, 0, -262130, 4, 0, -327666, 4, 0, -131058, 4, 0, -131057, 4, 0, -196593, 4, 0, -262129, 4, 0, -327665, 4, 0, -393201, 4, 0, -393202, 4, 0, -458738, 4, 0, -65522, 3, 0, -65521, 3, 0)
 
-[node name="Air" type="Node2D" parent="."]
-position = Vector2(66, -33)
-script = ExtResource("1_vih7h")
+[node name="Spikes" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Air"]
+[node name="Spike" type="Node2D" parent="Spikes"]
+position = Vector2(548, 12)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Spikes/Spike"]
 texture_filter = 1
-texture = ExtResource("1_duac7")
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ll2lp")
+animation = &"spin"
+autoplay = "spin"
 
-[node name="PushBubble" type="RayCast2D" parent="Air"]
-position = Vector2(32, 0)
-target_position = Vector2(125, 0)
-script = ExtResource("3_1jbyb")
+[node name="Area2D" type="Area2D" parent="Spikes/Spike"]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
-position = Vector2(32, 0)
-emitting = false
-amount = 46
-process_material = SubResource("ParticleProcessMaterial_af6eu")
-texture = ExtResource("6_khqjb")
-lifetime = 0.08
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Spike/Area2D"]
+shape = SubResource("CircleShape2D_buygo")
 
 [node name="Bubble" type="Node2D" parent="."]
 position = Vector2(121, 53)
@@ -147,19 +221,26 @@ sprite_frames = SubResource("SpriteFrames_esfns")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/BubbleRigid"]
 shape = SubResource("CircleShape2D_lsy11")
 
-[node name="Spikes" type="Node2D" parent="."]
+[node name="Air" type="Node2D" parent="."]
+position = Vector2(66, -33)
+script = ExtResource("1_vih7h")
 
-[node name="Spike" type="Node2D" parent="Spikes"]
-position = Vector2(548, 12)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes/Spike"]
+[node name="Sprite2D" type="Sprite2D" parent="Air"]
 texture_filter = 1
-texture = ExtResource("8_tvyur")
+scale = Vector2(3, 3)
+texture = ExtResource("1_duac7")
 
-[node name="Area2D" type="Area2D" parent="Spikes/Spike"]
+[node name="PushBubble" type="RayCast2D" parent="Air"]
+position = Vector2(24, 0)
+target_position = Vector2(110, 0)
+script = ExtResource("3_1jbyb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Spike/Area2D"]
-shape = SubResource("CircleShape2D_buygo")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
+position = Vector2(24, 0)
+emitting = false
+amount = 46
+process_material = SubResource("ParticleProcessMaterial_af6eu")
+texture = ExtResource("6_khqjb")
+lifetime = 0.04
 
 [connection signal="body_entered" from="Spikes/Spike/Area2D" to="Bubble" method="_on_area_2d_body_entered"]

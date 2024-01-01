@@ -1,19 +1,23 @@
 [gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://bf31f48pwss1f"]
 
-[sub_resource type="Curve" id="Curve_5u77e"]
+[sub_resource type="Curve" id="Curve_rjdlh"]
 min_value = -100.0
 max_value = 0.0
-_data = [Vector2(0, -70.3297), 0.0, 0.0, 0, 0, Vector2(1, -21.978), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, -78.022), 0.0, 0.0, 0, 0, Vector2(0.986667, -29.6703), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ccjq4"]
-curve_y = SubResource("Curve_5u77e")
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_t6afs"]
+curve_y = SubResource("Curve_rjdlh")
 
 [resource]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(500, 1, 1)
-directional_velocity_min = 1.0
+emission_box_extents = Vector3(1000, 1, 1)
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+directional_velocity_min = 0.5
 directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_ccjq4")
+directional_velocity_curve = SubResource("CurveXYZTexture_t6afs")
 gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 8.0
