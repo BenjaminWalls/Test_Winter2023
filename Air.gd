@@ -8,3 +8,7 @@ func _process(delta):
 	global_position=Mouse_Position
 	Bubble_Position=get_parent().get_node("Bubble/BubbleRigid").global_position
 	look_at(Bubble_Position)
+
+func _ready():
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
+	pass
