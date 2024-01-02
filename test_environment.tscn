@@ -1,11 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=41 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
 [ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
 [ext_resource type="Texture2D" uid="uid://dd6lwlx6tk7uv" path="res://Assets/cloud.png" id="6_khqjb"]
 [ext_resource type="Script" path="res://Bubble.gd" id="7_3uix7"]
-[ext_resource type="Texture2D" uid="uid://cjx40vsnomlan" path="res://Assets/fireball.png" id="7_ae1f6"]
+[ext_resource type="PackedScene" uid="uid://w2wpboqk6def" path="res://fireball.tscn" id="7_u6aki"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="9_1gjh6"]
 [ext_resource type="Texture2D" uid="uid://ltxb37tjd2yn" path="res://Assets/TileMap/corner.png" id="9_f43ry"]
@@ -92,44 +92,11 @@ radius = 29.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xire"]
 size = Vector2(16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nbb26"]
-atlas = ExtResource("7_ae1f6")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7tav"]
-atlas = ExtResource("7_ae1f6")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05c72"]
-atlas = ExtResource("7_ae1f6")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fl228"]
-atlas = ExtResource("7_ae1f6")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qmk83"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nbb26")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7tav")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_05c72")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fl228")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7lame"]
-radius = 25.1794
+[sub_resource type="Curve2D" id="Curve2D_tnn77"]
+_data = {
+"points": PackedVector2Array(0, 68, 0, -68, -324, -191, -136, -2, 136, 2, -125, -380, 6, -117, -6, 117, 137, -138, 115, 6, -115, -6, -67, 28, 5, 72, -5, -72, -325, -192)
+}
+point_count = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("10_75fcp")
@@ -319,24 +286,23 @@ texture = ExtResource("12_eth52")
 scale = Vector2(12, 4)
 shape = SubResource("RectangleShape2D_7xire")
 
-[node name="Fireball" type="Node2D" parent="."]
-position = Vector2(522, 181)
-metadata/_edit_group_ = true
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Fireball"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fireball/AnimatableBody2D"]
-texture_filter = 1
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_qmk83")
-autoplay = "default"
-
-[node name="Area2D" type="Area2D" parent="Fireball/AnimatableBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fireball/AnimatableBody2D/Area2D"]
-shape = SubResource("CircleShape2D_7lame")
-
 [node name="Fireballs" type="Node2D" parent="."]
+
+[node name="Fireball" parent="Fireballs" instance=ExtResource("7_u6aki")]
+position = Vector2(665, 211)
+
+[node name="Move" parent="Fireballs/Fireball" index="0"]
+curve = SubResource("Curve2D_tnn77")
+speed = 1.0
+speed_scale = 1.2
+
+[node name="PathFollow2D" parent="Fireballs/Fireball/Move" index="0"]
+position = Vector2(-324, -191)
+progress = 0.0
+rotates = false
+
+[node name="AnimatableBody2D" parent="Fireballs/Fireball/Move" index="1"]
+position = Vector2(-314.07, -243.917)
 
 [node name="Bubble" type="Node2D" parent="."]
 position = Vector2(121, 53)
@@ -384,4 +350,6 @@ lifetime = 0.04
 [connection signal="body_entered" from="Spikes/Spike/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Spikes/Spike2/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Spikes/Spike3/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Fireball/AnimatableBody2D/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Fireballs/Fireball/Move/AnimatableBody2D/Area2D" to="Bubble" method="_on_area_2d_body_entered"]
+
+[editable path="Fireballs/Fireball"]
