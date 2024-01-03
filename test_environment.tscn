@@ -481,8 +481,9 @@ gravity_scale = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="Bubble/BubbleRigid"]
 zoom = Vector2(2, 2)
+process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+position_smoothing_speed = 15.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble/BubbleRigid"]
 texture_filter = 1
@@ -624,7 +625,7 @@ centered = false
 
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2(8, 8)
-motion_scale = Vector2(0.05, 0.05)
+motion_scale = Vector2(0.03, 0.03)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon"]
 texture_filter = 1
