@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://g4of3mhl7hk5"]
 
 [ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
-[ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="2_up3wy"]
+[ext_resource type="Texture2D" uid="uid://crv6rjymymck" path="res://Assets/cute_bubble_idle.png" id="2_pm6qh"]
 [ext_resource type="Material" uid="uid://bf31f48pwss1f" path="res://bubparticles_2.tres" id="3_qdtf8"]
 [ext_resource type="Material" uid="uid://c34kn43f8714j" path="res://bubparticles_3.tres" id="4_ud634"]
 
@@ -25,7 +25,7 @@ texture_filter = 1
 position = Vector2(976, 1184)
 amount = 34
 process_material = ExtResource("1_p47ug")
-texture = ExtResource("2_up3wy")
+texture = ExtResource("2_pm6qh")
 lifetime = 44.0
 visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
 
@@ -35,7 +35,7 @@ texture_filter = 1
 position = Vector2(976, 1184)
 amount = 34
 process_material = ExtResource("3_qdtf8")
-texture = ExtResource("2_up3wy")
+texture = ExtResource("2_pm6qh")
 lifetime = 44.0
 visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
 
@@ -45,6 +45,6 @@ texture_filter = 1
 position = Vector2(976, 1184)
 amount = 34
 process_material = ExtResource("4_ud634")
-texture = ExtResource("2_up3wy")
+texture = ExtResource("2_pm6qh")
 lifetime = 44.0
 visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)

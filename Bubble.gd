@@ -9,10 +9,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_area_2d_body_entered(body):
-	#print("PLAY DEATH ANIMATION, NO NEED TO QUEUE FREE.")
-	$BubbleRigid/AnimatedSprite2D.play("Pop")
-	Engine.set_time_scale(0.05)
-	await get_tree().create_timer(0.14).timeout
-	Engine.set_time_scale(1)
-	get_tree().reload_current_scene()
+
+func _on_bubble_area_area_entered(area):
+	if area.name=="Spike_Area" or area.name=="Fireball_Area":
+		$BubbleRigid/AnimatedSprite2D.play("Pop")
+		Engine.set_time_scale(0.05)
+		await get_tree().create_timer(0.14).timeout
+		Engine.set_time_scale(1)
+		get_tree().reload_current_scene()
+	elif area.name=="Sphere_Area":
+		get_tree().change_scene_to_file("res://menu.tscn")
+		pass

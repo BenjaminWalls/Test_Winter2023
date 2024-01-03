@@ -102,10 +102,10 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dybsy")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="Move/AnimatableBody2D"]
+[node name="Fireball_Area" type="Area2D" parent="Move/AnimatableBody2D"]
 position = Vector2(-0.0878545, 0.173079)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Move/AnimatableBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Move/AnimatableBody2D/Fireball_Area"]
 shape = SubResource("CircleShape2D_bq66l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Move"]
