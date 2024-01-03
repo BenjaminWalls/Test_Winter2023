@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=52 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dd6lwlx6tk7uv" path="res://Assets/cloud.png" id="6_khqjb"]
 [ext_resource type="Script" path="res://Bubble.gd" id="7_3uix7"]
 [ext_resource type="PackedScene" uid="uid://w2wpboqk6def" path="res://fireball.tscn" id="7_u6aki"]
+[ext_resource type="Texture2D" uid="uid://l42jf6bk76iw" path="res://Assets/fan.png" id="8_ge1m7"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="9_1gjh6"]
 [ext_resource type="Texture2D" uid="uid://ltxb37tjd2yn" path="res://Assets/TileMap/corner.png" id="9_f43ry"]
+[ext_resource type="Script" path="res://Fan.gd" id="9_vsxin"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="10_75fcp"]
 [ext_resource type="Texture2D" uid="uid://imf6abdqwtp4" path="res://Assets/TileMap/inside.png" id="10_u5try"]
 [ext_resource type="Texture2D" uid="uid://bm6jyguv810nj" path="res://Assets/TileMap/slope.png" id="11_4p7cy"]
@@ -97,6 +99,62 @@ _data = {
 "points": PackedVector2Array(0, 68, 0, -68, -324, -191, -136, -2, 136, 2, -125, -380, 6, -117, -6, 117, 137, -138, 115, 6, -115, -6, -67, 28, 5, 72, -5, -72, -325, -192)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_birn4"]
+size = Vector2(116, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01h3f"]
+atlas = ExtResource("8_ge1m7")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2hs1"]
+atlas = ExtResource("8_ge1m7")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vpg8"]
+atlas = ExtResource("8_ge1m7")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abmqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01h3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2hs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vpg8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dawm"]
+
+[sub_resource type="Curve" id="Curve_ifga4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y1ojo"]
+curve = SubResource("Curve_ifga4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbq08"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(40, 1, 1)
+angle_min = -158.0
+angle_max = 24.3
+direction = Vector3(0, -100, 0)
+spread = 0.0
+initial_velocity_min = 348.31
+initial_velocity_max = 505.62
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_y1ojo")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("10_75fcp")
@@ -304,6 +362,39 @@ rotates = false
 [node name="AnimatableBody2D" parent="Fireballs/Fireball/Move" index="1"]
 position = Vector2(-314.07, -243.917)
 
+[node name="Fans" type="Node2D" parent="."]
+
+[node name="Fan" type="Node2D" parent="Fans"]
+position = Vector2(-253, -87)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fans/Fan"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/Fan/StaticBody2D"]
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_birn4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/Fan/StaticBody2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_abmqj")
+autoplay = "default"
+frame_progress = 0.713298
+
+[node name="Fan" type="ShapeCast2D" parent="Fans/Fan/StaticBody2D"]
+position = Vector2(0, -82)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_4dawm")
+target_position = Vector2(0, -51.1667)
+script = ExtResource("9_vsxin")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan/StaticBody2D"]
+modulate = Color(1, 1, 1, 0.243137)
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_wbq08")
+texture = ExtResource("6_khqjb")
+lifetime = 1.25
+
 [node name="Bubble" type="Node2D" parent="."]
 position = Vector2(121, 53)
 script = ExtResource("7_3uix7")
@@ -315,6 +406,7 @@ gravity_scale = 0.0
 [node name="Camera2D" type="Camera2D" parent="Bubble/BubbleRigid"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 6.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble/BubbleRigid"]
 texture_filter = 1
