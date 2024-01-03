@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=68 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
@@ -19,6 +19,9 @@
 [ext_resource type="Script" path="res://Block.gd" id="13_kq3ao"]
 [ext_resource type="Texture2D" uid="uid://cokjqjwjo4l6g" path="res://Assets/sphere_piece.png" id="13_molfs"]
 [ext_resource type="Texture2D" uid="uid://4xjcgwsa02dt" path="res://Assets/sphere-sheet.png" id="17_g0l5h"]
+[ext_resource type="Texture2D" uid="uid://cbqf0djox6c2i" path="res://Assets/space2.png" id="20_hvaa1"]
+[ext_resource type="Texture2D" uid="uid://wdjb3md7ct7r" path="res://Assets/space3.png" id="20_s1537"]
+[ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="22_poemq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmbn7"]
 texture = ExtResource("9_f43ry")
@@ -309,7 +312,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Pop",
-"speed": 80.0
+"speed": 90.0
 }, {
 "frames": [{
 "duration": 4.0,
@@ -401,7 +404,7 @@ progress = 0.0
 rotates = false
 
 [node name="AnimatableBody2D" parent="Fireballs/Fireball/Move" index="1"]
-position = Vector2(-314.07, -243.917)
+position = Vector2(-324, -191)
 
 [node name="Fans" type="Node2D" parent="."]
 
@@ -470,7 +473,6 @@ texture = ExtResource("13_molfs")
 shape = SubResource("CircleShape2D_6qn08")
 
 [node name="Bubble" type="Node2D" parent="."]
-position = Vector2(121, 53)
 script = ExtResource("7_3uix7")
 metadata/_edit_group_ = true
 
@@ -480,7 +482,7 @@ gravity_scale = 0.0
 [node name="Camera2D" type="Camera2D" parent="Bubble/BubbleRigid"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-position_smoothing_speed = 6.0
+position_smoothing_speed = 8.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bubble/BubbleRigid"]
 texture_filter = 1
@@ -517,6 +519,117 @@ amount = 46
 process_material = SubResource("ParticleProcessMaterial_af6eu")
 texture = ExtResource("6_khqjb")
 lifetime = 0.04
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(240, 135)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+texture = ExtResource("20_s1537")
+centered = false
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars2" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars2"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars3" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(-1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars3"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars4" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(0, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars4"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars5" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(0, -1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars5"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars6" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars6"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars7" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(-1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars7"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars8" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(1920, -1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars8"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Stars9" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.01, 0.01)
+motion_offset = Vector2(-1920, -1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars9"]
+texture_filter = 1
+texture = ExtResource("22_poemq")
+centered = false
+
+[node name="Moon" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(8, 8)
+motion_scale = Vector2(0.05, 0.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon"]
+texture_filter = 1
+texture = ExtResource("20_hvaa1")
+centered = false
 
 [connection signal="area_entered" from="SpherePieces/SpherePiece/SpherePiece_Area" to="Sphere" method="_on_sphere_piece_area_area_entered"]
 [connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="Bubble" method="_on_bubble_area_area_entered"]
