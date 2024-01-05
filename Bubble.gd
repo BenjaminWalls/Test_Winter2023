@@ -14,7 +14,7 @@ func _process(delta):
 
 
 func _on_bubble_area_area_entered(area):
-	if area.name=="Spike_Area" or area.name=="Fireball_Area":
+	if area.name=="Spike_Area" or area.name=="Fireball_Area" or area.name=="Cannonball_Area":
 		$BubbleRigid/AnimatedSprite2D.play("Pop")
 		Engine.set_time_scale(0.05)
 		await get_tree().create_timer(0.14).timeout
@@ -25,6 +25,7 @@ func _on_bubble_area_area_entered(area):
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		pass
 	elif area.name=="SpherePiece_Area":
+		area.get_parent().queue_free()
 		pieces+=1
 		match pieces:
 			1:

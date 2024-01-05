@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=71 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://imf6abdqwtp4" path="res://Assets/TileMap/inside.png" id="10_u5try"]
 [ext_resource type="Texture2D" uid="uid://bm6jyguv810nj" path="res://Assets/TileMap/slope.png" id="11_4p7cy"]
 [ext_resource type="Texture2D" uid="uid://d0dunx8tb2lfe" path="res://Assets/TileMap/wall.png" id="12_eth52"]
+[ext_resource type="Texture2D" uid="uid://cngblqnq68xuo" path="res://Assets/cannon.png" id="13_elndi"]
+[ext_resource type="Script" path="res://Cannon.gd" id="13_iv4l7"]
 [ext_resource type="Script" path="res://Block.gd" id="13_kq3ao"]
 [ext_resource type="Texture2D" uid="uid://cokjqjwjo4l6g" path="res://Assets/sphere_piece.png" id="13_molfs"]
 [ext_resource type="Texture2D" uid="uid://4xjcgwsa02dt" path="res://Assets/sphere-sheet.png" id="17_g0l5h"]
@@ -239,6 +241,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofjmk"]
 radius = 7.07107
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qn08"]
+radius = 17.0
+
 [sub_resource type="GDScript" id="GDScript_awn57"]
 script/source = "extends Node2D
 
@@ -259,8 +264,8 @@ func _on_sphere_piece_area_area_entered(area):
 	pass # Replace with function body.
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6qn08"]
-radius = 17.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ceel"]
+size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("10_75fcp")
@@ -474,6 +479,78 @@ animation = &"Full"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sphere/Sphere_Area"]
 shape = SubResource("CircleShape2D_ofjmk")
 
+[node name="SpherePieces" type="Node2D" parent="."]
+
+[node name="SpherePiece" type="Node2D" parent="SpherePieces"]
+position = Vector2(760, 348)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("13_molfs")
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
+[node name="SpherePiece2" type="Node2D" parent="SpherePieces"]
+position = Vector2(869, 351)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("13_molfs")
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece2/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
+[node name="SpherePiece3" type="Node2D" parent="SpherePieces"]
+position = Vector2(986, 358)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece3"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("13_molfs")
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece3/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
+[node name="SpherePiece4" type="Node2D" parent="SpherePieces"]
+position = Vector2(1091, 379)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece4"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("13_molfs")
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece4/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
+[node name="SpherePiece5" type="Node2D" parent="SpherePieces"]
+position = Vector2(1241, 416)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece5"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("13_molfs")
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece5/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
 [node name="BrokenSphere" type="Node2D" parent="."]
 position = Vector2(1161, 223)
 script = SubResource("GDScript_awn57")
@@ -490,22 +567,30 @@ animation = &"Empty"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
 shape = SubResource("CircleShape2D_ofjmk")
 
-[node name="SpherePieces" type="Node2D" parent="BrokenSphere"]
-position = Vector2(-1161, -223)
+[node name="Cannons" type="Node2D" parent="."]
 
-[node name="SpherePiece" type="Node2D" parent="BrokenSphere/SpherePieces"]
-position = Vector2(760, 348)
+[node name="Cannon" type="Node2D" parent="Cannons"]
+position = Vector2(-15, -155)
+rotation = -3.17276
+script = ExtResource("13_iv4l7")
+speed = 0.1
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="BrokenSphere/SpherePieces/SpherePiece"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Cannons/Cannon"]
+position = Vector2(-4.76837e-07, 1.18335e-05)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cannons/Cannon/StaticBody2D"]
 texture_filter = 1
 scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
+texture = ExtResource("13_elndi")
 
-[node name="SpherePiece_Area" type="Area2D" parent="BrokenSphere/SpherePieces/SpherePiece"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannons/Cannon/StaticBody2D"]
+shape = SubResource("RectangleShape2D_7ceel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/SpherePieces/SpherePiece/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
+[node name="Timer" type="Timer" parent="Cannons/Cannon/StaticBody2D"]
+
+[node name="Marker2D" type="Marker2D" parent="Cannons/Cannon/StaticBody2D"]
+position = Vector2(64, 0)
 
 [node name="Bubble" type="Node2D" parent="."]
 script = ExtResource("7_3uix7")
@@ -563,6 +648,7 @@ scroll_ignore_camera_zoom = true
 scale = Vector2(8, 8)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(240, 135)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture_filter = 1
@@ -573,6 +659,7 @@ metadata/_edit_lock_ = true
 [node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars"]
 texture_filter = 1
@@ -583,6 +670,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(1920, 0)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars2"]
 texture_filter = 1
@@ -593,6 +681,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(-1920, 0)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars3"]
 texture_filter = 1
@@ -603,6 +692,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(0, 1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars4"]
 texture_filter = 1
@@ -613,6 +703,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(0, -1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars5"]
 texture_filter = 1
@@ -623,6 +714,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(1920, 1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars6"]
 texture_filter = 1
@@ -633,6 +725,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(-1920, 1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars7"]
 texture_filter = 1
@@ -643,6 +736,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(1920, -1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars8"]
 texture_filter = 1
@@ -653,6 +747,7 @@ centered = false
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.01, 0.01)
 motion_offset = Vector2(-1920, -1080)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars9"]
 texture_filter = 1
@@ -662,12 +757,14 @@ centered = false
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2(8, 8)
 motion_scale = Vector2(0.03, 0.03)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon"]
 texture_filter = 1
 texture = ExtResource("20_hvaa1")
 centered = false
 
+[connection signal="timeout" from="Cannons/Cannon/StaticBody2D/Timer" to="Cannons/Cannon" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="Bubble" method="_on_bubble_area_area_entered"]
 
 [editable path="Fireballs/Fireball"]
