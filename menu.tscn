@@ -1,9 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://g4of3mhl7hk5"]
+[gd_scene load_steps=13 format=3 uid="uid://g4of3mhl7hk5"]
 
 [ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
+[ext_resource type="Script" path="res://menu.gd" id="1_uur1k"]
 [ext_resource type="Texture2D" uid="uid://crv6rjymymck" path="res://Assets/cute_bubble_idle.png" id="2_pm6qh"]
 [ext_resource type="Material" uid="uid://bf31f48pwss1f" path="res://bubparticles_2.tres" id="3_qdtf8"]
 [ext_resource type="Material" uid="uid://c34kn43f8714j" path="res://bubparticles_3.tres" id="4_ud634"]
+[ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="6_a6m0h"]
+[ext_resource type="FontFile" uid="uid://dh72flyfeta0l" path="res://BUBBLEBATH.ttf" id="7_off0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_332g5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fann"]
+content_margin_bottom = 30.0
+bg_color = Color(0.313726, 0.65098, 0.772549, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfgww"]
+content_margin_bottom = 30.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx7ik"]
+content_margin_bottom = 25.0
+bg_color = Color(0.313726, 0.607843, 0.960784, 0)
+
+[sub_resource type="Theme" id="Theme_bsgrq"]
+Button/colors/font_hover_color = Color(0.631373, 0.94902, 0.94902, 1)
+Button/colors/font_pressed_color = Color(0.188235, 0.584314, 1, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("6_a6m0h")
+Button/styles/focus = SubResource("StyleBoxEmpty_332g5")
+Button/styles/hover = SubResource("StyleBoxFlat_5fann")
+Button/styles/normal = SubResource("StyleBoxFlat_tfgww")
+Button/styles/pressed = SubResource("StyleBoxFlat_nx7ik")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,12 +39,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uur1k")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.521569, 0.584314, 0.921569, 1)
+metadata/_edit_lock_ = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(0.501961, 1, 1, 0.32549)
@@ -48,3 +77,36 @@ process_material = ExtResource("4_ud634")
 texture = ExtResource("2_pm6qh")
 lifetime = 44.0
 visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 616.0
+offset_right = 360.0
+offset_bottom = 968.0
+theme = SubResource("Theme_bsgrq")
+metadata/_edit_group_ = true
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 200.0
+offset_right = 1320.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(0.458824, 1, 0.760784, 1)
+theme_override_fonts/font = ExtResource("7_off0i")
+theme_override_font_sizes/font_size = 100
+text = "Bubble Balls"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

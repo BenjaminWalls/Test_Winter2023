@@ -3,6 +3,7 @@ extends Node2D
 var pieces = 0
 var star = preload("res://star.tscn")
 var parent
+var vel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +13,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	vel = get_node("BubbleRigid").linear_velocity
+	#print(get_node("BubbleRigid").linear_velocity)
+	#if vel.x >1000 or vel.x <-1000 or vel.y > 1000 or vel.y < -1000:
+		#$BubbleRigid/AnimatedSprite2D.play("fast")
 
 
 func _on_bubble_area_area_entered(area):
@@ -35,8 +39,8 @@ func _on_bubble_area_area_entered(area):
 		parent=area.get_parent()
 		area.queue_free()
 		parent.get_node("AnimatedSprite2D").play("collect")
-		parent.set_linear_velocity(Vector2(0,-50))
-		await get_tree().create_timer(0.25).timeout
+		#parent.set_linear_velocity(Vector2(0,-50))
+		#await get_tree().create_timer(0.25).timeout
 		parent.set_linear_velocity(Vector2(0,-30))
 		parent.get_node("GPUParticles2D").emitting=true
 		parent.get_node("AnimatedSprite2D").set_modulate(Color(0,0,0,0))

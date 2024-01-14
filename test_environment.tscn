@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=88 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_c08om"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
@@ -282,7 +282,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"collect",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,21 +328,28 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qn08"]
 radius = 17.0
 
+[sub_resource type="Curve" id="Curve_7r4dr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fx0e1"]
+curve = SubResource("Curve_7r4dr")
+
 [sub_resource type="Curve" id="Curve_fgtc1"]
 min_value = -15.0
 max_value = 0.0
 _data = [Vector2(0, -15), 0.0, 0.0, 0, 0, Vector2(0.18, -4.45055), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l038d"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_w54wq"]
 curve_y = SubResource("Curve_fgtc1")
 
 [sub_resource type="Curve" id="Curve_f57a7"]
 max_value = 3.0
-_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0.461539), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_s8k5e"]
+[sub_resource type="CurveTexture" id="CurveTexture_0ep00"]
 curve = SubResource("Curve_f57a7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvbjl"]
@@ -356,10 +363,11 @@ angle_min = -97.1
 angle_max = 32.4
 directional_velocity_min = 1.0
 directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_l038d")
+directional_velocity_curve = SubResource("CurveXYZTexture_w54wq")
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_s8k5e")
-color = Color(1, 0.952941, 0, 0.533333)
+scale_curve = SubResource("CurveTexture_0ep00")
+color = Color(1, 0.952941, 0, 0.631373)
+alpha_curve = SubResource("CurveTexture_fx0e1")
 
 [sub_resource type="GDScript" id="GDScript_awn57"]
 script/source = "extends Node2D
@@ -629,8 +637,8 @@ metadata/_edit_group_ = true
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vwts3")
-animation = &"collect2"
-autoplay = "default"
+animation = &"collect"
+autoplay = "collect"
 
 [node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece"]
 
@@ -639,9 +647,9 @@ shape = SubResource("CircleShape2D_6qn08")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="SpherePieces/SpherePiece"]
 emitting = false
-amount = 100
+amount = 256
 process_material = SubResource("ParticleProcessMaterial_dvbjl")
-lifetime = 2.0
+lifetime = 1.5
 
 [node name="BrokenSphere" type="Node2D" parent="."]
 position = Vector2(149, -79)
