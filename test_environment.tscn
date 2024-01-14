@@ -1,5 +1,6 @@
-[gd_scene load_steps=71 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=86 format=3 uid="uid://04m5y8xj8xtj"]
 
+[ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_c08om"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
 [ext_resource type="Script" path="res://Air.gd" id="1_vih7h"]
 [ext_resource type="Script" path="res://PushBubble.gd" id="3_1jbyb"]
@@ -9,55 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://l42jf6bk76iw" path="res://Assets/fan.png" id="8_ge1m7"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="8_tvyur"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="9_1gjh6"]
-[ext_resource type="Texture2D" uid="uid://ltxb37tjd2yn" path="res://Assets/TileMap/corner.png" id="9_f43ry"]
 [ext_resource type="Script" path="res://Fan.gd" id="9_vsxin"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="10_75fcp"]
-[ext_resource type="Texture2D" uid="uid://imf6abdqwtp4" path="res://Assets/TileMap/inside.png" id="10_u5try"]
-[ext_resource type="Texture2D" uid="uid://bm6jyguv810nj" path="res://Assets/TileMap/slope.png" id="11_4p7cy"]
+[ext_resource type="Texture2D" uid="uid://rsg2qk2mbxxx" path="res://Assets/sphere_piece_collect.png" id="12_5u5tq"]
 [ext_resource type="Texture2D" uid="uid://d0dunx8tb2lfe" path="res://Assets/TileMap/wall.png" id="12_eth52"]
 [ext_resource type="Texture2D" uid="uid://cngblqnq68xuo" path="res://Assets/cannon.png" id="13_elndi"]
 [ext_resource type="Script" path="res://Cannon.gd" id="13_iv4l7"]
 [ext_resource type="Script" path="res://Block.gd" id="13_kq3ao"]
-[ext_resource type="Texture2D" uid="uid://cokjqjwjo4l6g" path="res://Assets/sphere_piece.png" id="13_molfs"]
+[ext_resource type="Texture2D" uid="uid://cluhphw08i8qr" path="res://Assets/sphere_piece.png" id="13_molfs"]
+[ext_resource type="Texture2D" uid="uid://dqyuacny1bhx6" path="res://Assets/sphere_piece_collect_2.png" id="13_twryp"]
 [ext_resource type="Texture2D" uid="uid://4xjcgwsa02dt" path="res://Assets/sphere-sheet.png" id="17_g0l5h"]
 [ext_resource type="Texture2D" uid="uid://cbqf0djox6c2i" path="res://Assets/space2.png" id="20_hvaa1"]
 [ext_resource type="Texture2D" uid="uid://wdjb3md7ct7r" path="res://Assets/space3.png" id="20_s1537"]
 [ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="22_poemq"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmbn7"]
-texture = ExtResource("9_f43ry")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_expms"]
-texture = ExtResource("11_4p7cy")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 0, 0)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qohs4"]
-texture = ExtResource("12_eth52")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kisa8"]
-texture = ExtResource("10_u5try")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_gmv1v"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jmbn7")
-sources/2 = SubResource("TileSetAtlasSource_expms")
-sources/3 = SubResource("TileSetAtlasSource_qohs4")
-sources/4 = SubResource("TileSetAtlasSource_kisa8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
 atlas = ExtResource("8_tvyur")
@@ -145,7 +110,7 @@ animations = [{
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_y1ojo"]
+[sub_resource type="CurveTexture" id="CurveTexture_bwivc"]
 curve = SubResource("Curve_ifga4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbq08"]
@@ -161,7 +126,10 @@ initial_velocity_max = 505.62
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_y1ojo")
+scale_curve = SubResource("CurveTexture_bwivc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ceel"]
+size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hq6g"]
 atlas = ExtResource("17_g0l5h")
@@ -241,8 +209,157 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofjmk"]
 radius = 7.07107
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt1qv"]
+atlas = ExtResource("12_5u5tq")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ggw"]
+atlas = ExtResource("12_5u5tq")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttkgw"]
+atlas = ExtResource("12_5u5tq")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cypcf"]
+atlas = ExtResource("12_5u5tq")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hetcs"]
+atlas = ExtResource("13_twryp")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqtej"]
+atlas = ExtResource("13_twryp")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwe63"]
+atlas = ExtResource("13_twryp")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxo0y"]
+atlas = ExtResource("13_twryp")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lejoh"]
+atlas = ExtResource("13_twryp")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2a1x"]
+atlas = ExtResource("13_twryp")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2k8d"]
+atlas = ExtResource("13_twryp")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_615xh"]
+atlas = ExtResource("13_molfs")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixgeg"]
+atlas = ExtResource("13_molfs")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uhaj"]
+atlas = ExtResource("13_molfs")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwts3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt1qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ggw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttkgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cypcf")
+}],
+"loop": true,
+"name": &"collect",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hetcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqtej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwe63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxo0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lejoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2a1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2k8d")
+}],
+"loop": false,
+"name": &"collect2",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_615xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixgeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uhaj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qn08"]
 radius = 17.0
+
+[sub_resource type="Curve" id="Curve_fgtc1"]
+min_value = -15.0
+max_value = 0.0
+_data = [Vector2(0, -15), 0.0, 0.0, 0, 0, Vector2(0.18, -4.45055), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l038d"]
+curve_y = SubResource("Curve_fgtc1")
+
+[sub_resource type="Curve" id="Curve_f57a7"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s8k5e"]
+curve = SubResource("Curve_f57a7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvbjl"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 24.0
+emission_ring_inner_radius = 0.0
+angle_min = -97.1
+angle_max = 32.4
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_l038d")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_s8k5e")
+color = Color(1, 0.952941, 0, 0.533333)
 
 [sub_resource type="GDScript" id="GDScript_awn57"]
 script/source = "extends Node2D
@@ -263,9 +380,6 @@ func _on_sphere_piece_area_area_entered(area):
 	
 	pass # Replace with function body.
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ceel"]
-size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("10_75fcp")
@@ -373,7 +487,7 @@ color = Color(1, 0.996078, 0.976471, 0.152941)
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_set = SubResource("TileSet_gmv1v")
+tile_set = ExtResource("1_c08om")
 format = 2
 layer_0/tile_data = PackedInt32Array(-327670, 0, 0, -262134, 2, 0, -196597, 2, 0, -131060, 2, 0, -65523, 2, 0, -262133, 0, 0, -196596, 0, 0, -131059, 0, 0, -327671, 3, 0, -327672, 3, 0, -327673, 3, 0, -327674, 3, 0, -327675, 3, 0, -393211, 4, 0, -393210, 4, 0, -393209, 4, 0, -393208, 4, 0, -393207, 4, 0, -393206, 4, 0, -393205, 4, 0, -327669, 4, 0, -327668, 4, 0, -393204, 4, 0, -262132, 4, 0, -262131, 4, 0, -327667, 4, 0, -393203, 4, 0, -458739, 4, 0, -458740, 4, 0, -458741, 4, 0, -458742, 4, 0, -458743, 4, 0, -458744, 4, 0, -458745, 4, 0, -458746, 4, 0, -458747, 4, 0, -196595, 4, 0, -196594, 4, 0, -262130, 4, 0, -327666, 4, 0, -131058, 4, 0, -131057, 4, 0, -196593, 4, 0, -262129, 4, 0, -327665, 4, 0, -393201, 4, 0, -393202, 4, 0, -458738, 4, 0, -65522, 3, 0, -65521, 3, 0)
 
@@ -464,109 +578,6 @@ texture = ExtResource("6_khqjb")
 lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
-[node name="Sphere" type="Node2D" parent="."]
-position = Vector2(918, 229)
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sphere"]
-texture_filter = 1
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_d2ggc")
-animation = &"Full"
-
-[node name="Sphere_Area" type="Area2D" parent="Sphere"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sphere/Sphere_Area"]
-shape = SubResource("CircleShape2D_ofjmk")
-
-[node name="SpherePieces" type="Node2D" parent="."]
-
-[node name="SpherePiece" type="Node2D" parent="SpherePieces"]
-position = Vector2(760, 348)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
-
-[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
-
-[node name="SpherePiece2" type="Node2D" parent="SpherePieces"]
-position = Vector2(869, 351)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece2"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
-
-[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece2/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
-
-[node name="SpherePiece3" type="Node2D" parent="SpherePieces"]
-position = Vector2(986, 358)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece3"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
-
-[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece3/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
-
-[node name="SpherePiece4" type="Node2D" parent="SpherePieces"]
-position = Vector2(1091, 379)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece4"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
-
-[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece4/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
-
-[node name="SpherePiece5" type="Node2D" parent="SpherePieces"]
-position = Vector2(1241, 416)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="SpherePieces/SpherePiece5"]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("13_molfs")
-
-[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece5/SpherePiece_Area"]
-shape = SubResource("CircleShape2D_6qn08")
-
-[node name="BrokenSphere" type="Node2D" parent="."]
-position = Vector2(1161, 223)
-script = SubResource("GDScript_awn57")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BrokenSphere"]
-texture_filter = 1
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_d2ggc")
-animation = &"Empty"
-
-[node name="BrokenSphere_Area" type="Area2D" parent="BrokenSphere"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
-shape = SubResource("CircleShape2D_ofjmk")
-
 [node name="Cannons" type="Node2D" parent="."]
 
 [node name="Cannon" type="Node2D" parent="Cannons"]
@@ -591,6 +602,62 @@ shape = SubResource("RectangleShape2D_7ceel")
 
 [node name="Marker2D" type="Marker2D" parent="Cannons/Cannon/StaticBody2D"]
 position = Vector2(64, 0)
+
+[node name="Sphere" type="Node2D" parent="."]
+position = Vector2(918, 229)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sphere"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_d2ggc")
+animation = &"Full"
+
+[node name="Sphere_Area" type="Area2D" parent="Sphere"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sphere/Sphere_Area"]
+shape = SubResource("CircleShape2D_ofjmk")
+
+[node name="SpherePieces" type="Node2D" parent="."]
+
+[node name="SpherePiece" type="RigidBody2D" parent="SpherePieces"]
+position = Vector2(146, 60)
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpherePieces/SpherePiece"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_vwts3")
+animation = &"collect2"
+autoplay = "default"
+
+[node name="SpherePiece_Area" type="Area2D" parent="SpherePieces/SpherePiece"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpherePieces/SpherePiece/SpherePiece_Area"]
+shape = SubResource("CircleShape2D_6qn08")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SpherePieces/SpherePiece"]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_dvbjl")
+lifetime = 2.0
+
+[node name="BrokenSphere" type="Node2D" parent="."]
+position = Vector2(149, -79)
+script = SubResource("GDScript_awn57")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BrokenSphere"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_d2ggc")
+animation = &"Empty"
+
+[node name="BrokenSphere_Area" type="Area2D" parent="BrokenSphere"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
+shape = SubResource("CircleShape2D_ofjmk")
 
 [node name="Bubble" type="Node2D" parent="."]
 script = ExtResource("7_3uix7")

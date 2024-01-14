@@ -1,6 +1,8 @@
 extends Node2D
 
 var pieces = 0
+var star = preload("res://star.tscn")
+var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,11 +23,25 @@ func _on_bubble_area_area_entered(area):
 		Engine.set_time_scale(1)
 		get_tree().reload_current_scene()
 	elif area.name=="Sphere_Area":
+		get_node("BubbleRigid/AnimatedSprite2D").visible=false
+		get_parent().get_node("Sphere/AnimatedSprite2D").visible=false
+		Engine.set_time_scale(0.01)
+		await get_tree().create_timer(0.05).timeout
+		Engine.set_time_scale(1)
 		get_tree().change_scene_to_file("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		pass
 	elif area.name=="SpherePiece_Area":
-		area.get_parent().queue_free()
+		parent=area.get_parent()
+		area.queue_free()
+		parent.get_node("AnimatedSprite2D").play("collect")
+		parent.set_linear_velocity(Vector2(0,-50))
+		await get_tree().create_timer(0.25).timeout
+		parent.set_linear_velocity(Vector2(0,-30))
+		parent.get_node("GPUParticles2D").emitting=true
+		parent.get_node("AnimatedSprite2D").set_modulate(Color(0,0,0,0))
+		await get_tree().create_timer(0.5).timeout
+		parent.get_node("GPUParticles2D").emitting=false
 		pieces+=1
 		match pieces:
 			1:
