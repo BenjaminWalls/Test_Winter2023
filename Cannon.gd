@@ -9,15 +9,6 @@ func _ready():
 	get_node("StaticBody2D/Timer").start(wait)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
-	#var instance = ball.instantiate()
-	#add_child(instance)
-	pass
-
-
 func _on_timer_timeout():
 	var instance = ball.instantiate()
 	var velocity = get_node("StaticBody2D/Marker2D").global_position - global_position

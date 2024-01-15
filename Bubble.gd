@@ -72,6 +72,7 @@ func _on_bubble_area_area_entered(area):
 		parent.get_node("GPUParticles2D").emitting=false
 		#print(pieces)
 	elif area.name=="BrokenSphere_Area" and pieces>=5:
+		$BubbleRigid/AnimatedSprite2D.play("fast")
 		SceneTransition.change_scene("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	elif area.name=="MovingObstaclesArea":

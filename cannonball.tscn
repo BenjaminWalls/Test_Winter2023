@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1bo5en2t0dmy"]
+[gd_scene load_steps=4 format=3 uid="uid://b1bo5en2t0dmy"]
 
+[ext_resource type="Script" path="res://cannonball.gd" id="1_3kxad"]
 [ext_resource type="Texture2D" uid="uid://e3ulw1qffsvo" path="res://Assets/cannonball.png" id="1_hywca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qhqt"]
@@ -8,6 +9,7 @@ radius = 17.0
 [node name="Cannonball" type="RigidBody2D"]
 show_behind_parent = true
 gravity_scale = 0.0
+script = ExtResource("1_3kxad")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -18,3 +20,5 @@ texture = ExtResource("1_hywca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cannonball_Area"]
 shape = SubResource("CircleShape2D_7qhqt")
+
+[connection signal="area_entered" from="Cannonball_Area" to="." method="_on_cannonball_area_area_entered"]

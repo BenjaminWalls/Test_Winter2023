@@ -118,7 +118,7 @@ animations = [{
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_y1ojo"]
+[sub_resource type="CurveTexture" id="CurveTexture_g4mo1"]
 curve = SubResource("Curve_k3k70")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wadi7"]
@@ -134,7 +134,7 @@ initial_velocity_max = 505.62
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_y1ojo")
+scale_curve = SubResource("CurveTexture_g4mo1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1w1l"]
 size = Vector2(64, 64)
@@ -241,21 +241,21 @@ radius = 7.07107
 _data = [Vector2(0, 0.505494), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_8sw2q"]
+[sub_resource type="CurveTexture" id="CurveTexture_kdjc6"]
 curve = SubResource("Curve_62u3e")
 
 [sub_resource type="Curve" id="Curve_8p1cg"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.986667, 0.989011), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2e7ac"]
+[sub_resource type="CurveTexture" id="CurveTexture_aeriw"]
 curve = SubResource("Curve_8p1cg")
 
 [sub_resource type="Curve" id="Curve_f4ouh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_anho6"]
+[sub_resource type="CurveTexture" id="CurveTexture_1lc8e"]
 curve = SubResource("Curve_f4ouh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i2m07"]
@@ -267,13 +267,13 @@ angle_max = 90.0
 orbit_velocity_min = 0.02
 orbit_velocity_max = 0.02
 radial_velocity_max = 100.0
-radial_velocity_curve = SubResource("CurveTexture_2e7ac")
+radial_velocity_curve = SubResource("CurveTexture_aeriw")
 gravity = Vector3(0, 0, 0)
 scale_min = 6.0
 scale_max = 6.0
-scale_curve = SubResource("CurveTexture_anho6")
+scale_curve = SubResource("CurveTexture_1lc8e")
 color = Color(1, 1, 0.611765, 1)
-alpha_curve = SubResource("CurveTexture_8sw2q")
+alpha_curve = SubResource("CurveTexture_kdjc6")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt1qv"]
 atlas = ExtResource("12_8dxme")
@@ -398,7 +398,7 @@ radius = 17.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ml38t"]
+[sub_resource type="CurveTexture" id="CurveTexture_5pkkx"]
 curve = SubResource("Curve_jgkw3")
 
 [sub_resource type="Curve" id="Curve_3ateg"]
@@ -407,7 +407,7 @@ max_value = 0.0
 _data = [Vector2(0, -15), 0.0, 0.0, 0, 0, Vector2(0.18, -4.45055), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l038d"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ko0vg"]
 curve_y = SubResource("Curve_3ateg")
 
 [sub_resource type="Curve" id="Curve_ypdp3"]
@@ -415,7 +415,7 @@ max_value = 3.0
 _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0.461539), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_s8k5e"]
+[sub_resource type="CurveTexture" id="CurveTexture_3rmis"]
 curve = SubResource("Curve_ypdp3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yat2s"]
@@ -429,11 +429,11 @@ angle_min = -97.1
 angle_max = 32.4
 directional_velocity_min = 1.0
 directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_l038d")
+directional_velocity_curve = SubResource("CurveXYZTexture_ko0vg")
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_s8k5e")
+scale_curve = SubResource("CurveTexture_3rmis")
 color = Color(1, 0.952941, 0, 0.631373)
-alpha_curve = SubResource("CurveTexture_ml38t")
+alpha_curve = SubResource("CurveTexture_5pkkx")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("16_qrrb3")
@@ -1448,6 +1448,7 @@ clip_text = true
 text_overrun_behavior = 2
 
 [node name="TutorialLabel7" type="Label" parent="TutorialTextandAreas"]
+visible = false
 texture_filter = 1
 offset_left = 6723.0
 offset_top = -196.0
