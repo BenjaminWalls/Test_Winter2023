@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://qiuld2doc6ee"]
+[gd_scene load_steps=99 format=3 uid="uid://qiuld2doc6ee"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_b3njx"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_g5plj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqyuacny1bhx6" path="res://Assets/sphere_piece_collect_2.png" id="13_hw77u"]
 [ext_resource type="Texture2D" uid="uid://cluhphw08i8qr" path="res://Assets/sphere_piece.png" id="14_lq85a"]
 [ext_resource type="Script" path="res://Bubble.gd" id="15_vhta7"]
+[ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="16_gkf4x"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="16_qrrb3"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="17_3iquq"]
 [ext_resource type="Script" path="res://Air.gd" id="18_d51kq"]
@@ -235,6 +236,37 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lfnt"]
 radius = 7.07107
+
+[sub_resource type="Curve" id="Curve_8p1cg"]
+max_value = 10.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.986667, 0.989011), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2e7ac"]
+curve = SubResource("Curve_8p1cg")
+
+[sub_resource type="Curve" id="Curve_f4ouh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_anho6"]
+curve = SubResource("Curve_f4ouh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i2m07"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 52.0
+angle_min = -90.0
+angle_max = 90.0
+orbit_velocity_min = 0.02
+orbit_velocity_max = 0.02
+radial_velocity_max = 100.0
+radial_velocity_curve = SubResource("CurveTexture_2e7ac")
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_anho6")
+color = Color(1, 1, 0.611765, 0.337255)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt1qv"]
 atlas = ExtResource("12_8dxme")
@@ -509,6 +541,14 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 color = Color(1, 0.996078, 0.976471, 0.152941)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duxld"]
+size = Vector2(37, 475)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oetix"]
+line_spacing = 12.0
+font = ExtResource("16_gkf4x")
+font_size = 18
+
 [node name="Tutorial" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -670,7 +710,7 @@ position = Vector2(-232, -264)
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Fan" type="Node2D" parent="Fans"]
-position = Vector2(2996, 182)
+position = Vector2(3175, 182)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fans/Fan"]
@@ -701,7 +741,7 @@ lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="Fan2" type="Node2D" parent="Fans"]
-position = Vector2(3263, -185)
+position = Vector2(3477, -188)
 rotation = 3.14159
 metadata/_edit_group_ = true
 
@@ -733,8 +773,8 @@ lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="Fan3" type="Node2D" parent="Fans"]
-position = Vector2(3493, 4)
-rotation = 1.5708
+position = Vector2(3641, -185)
+rotation = 2.3213
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fans/Fan3"]
@@ -757,6 +797,38 @@ target_position = Vector2(0, -51.1667)
 script = ExtResource("7_skci8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan3/StaticBody2D"]
+modulate = Color(1, 1, 1, 0.243137)
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_wadi7")
+texture = ExtResource("8_ylj0g")
+lifetime = 1.25
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+
+[node name="Fan4" type="Node2D" parent="Fans"]
+position = Vector2(3957, 220)
+rotation = 0.752587
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fans/Fan4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fans/Fan4/StaticBody2D"]
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_jj81u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fans/Fan4/StaticBody2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_81j11")
+autoplay = "default"
+
+[node name="Fan" type="ShapeCast2D" parent="Fans/Fan4/StaticBody2D"]
+position = Vector2(0, -82)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_th5go")
+target_position = Vector2(0, -51.1667)
+script = ExtResource("7_skci8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan4/StaticBody2D"]
 modulate = Color(1, 1, 1, 0.243137)
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_wadi7")
@@ -924,6 +996,14 @@ animation = &"Empty"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
 shape = SubResource("CircleShape2D_8lfnt")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BrokenSphere"]
+emitting = false
+amount = 600
+process_material = SubResource("ParticleProcessMaterial_i2m07")
+lifetime = 2.0
+fixed_fps = 60
+visibility_rect = Rect2(-47.9888, -46.3209, 96.3999, 92.6741)
+
 [node name="SpherePieces" type="Node2D" parent="."]
 
 [node name="SpherePiece" type="RigidBody2D" parent="SpherePieces"]
@@ -1042,6 +1122,7 @@ process_material = SubResource("ParticleProcessMaterial_yat2s")
 lifetime = 1.5
 
 [node name="Bubble" type="Node2D" parent="."]
+position = Vector2(6833, 106)
 script = ExtResource("15_vhta7")
 metadata/_edit_group_ = true
 
@@ -1212,6 +1293,159 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 texture = ExtResource("23_bgclu")
 centered = false
+
+[node name="TutorialTextandAreas" type="Node2D" parent="."]
+
+[node name="MovingObstaclesArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(526, -146)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/MovingObstaclesArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="SpikeArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(1076, -133)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/SpikeArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="FireballArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(1912, -129)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/FireballArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="FanArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(2702, -127)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/FanArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="CannonArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(4482, -130)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/CannonArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="SphereArea" type="Area2D" parent="TutorialTextandAreas"]
+position = Vector2(6711, -117)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialTextandAreas/SphereArea"]
+position = Vector2(8.5, 131.5)
+shape = SubResource("RectangleShape2D_duxld")
+
+[node name="TutorialLabel" type="Label" parent="TutorialTextandAreas"]
+texture_filter = 1
+offset_left = -13.0
+offset_top = -83.0
+offset_right = 491.0
+offset_bottom = 89.0
+text = "Welcome to Bubble Balls!Press & Hold Left Click to Blow Air!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel2" type="Label" parent="TutorialTextandAreas"]
+visible = false
+texture_filter = 1
+offset_left = 611.0
+offset_top = -69.0
+offset_right = 965.0
+offset_bottom = 81.0
+text = "Avoid Moving Obstacles"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel3" type="Label" parent="TutorialTextandAreas"]
+visible = false
+texture_filter = 1
+offset_left = 1154.0
+offset_top = -72.0
+offset_right = 1508.0
+offset_bottom = 78.0
+text = "Spikes will pop you!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel4" type="Label" parent="TutorialTextandAreas"]
+visible = false
+texture_filter = 1
+offset_left = 1936.0
+offset_top = -73.0
+offset_right = 2290.0
+offset_bottom = 77.0
+text = "Fireballs move and will also pop you!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel5" type="Label" parent="TutorialTextandAreas"]
+visible = false
+texture_filter = 1
+offset_left = 2749.0
+offset_top = -182.0
+offset_right = 3103.0
+offset_bottom = -32.0
+text = "Fans will push you!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel6" type="Label" parent="TutorialTextandAreas"]
+visible = false
+texture_filter = 1
+offset_left = 4555.0
+offset_top = -76.0
+offset_right = 4909.0
+offset_bottom = 74.0
+text = "Cannons shoot bullets that will pop you!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TutorialLabel7" type="Label" parent="TutorialTextandAreas"]
+texture_filter = 1
+offset_left = 6723.0
+offset_top = -196.0
+offset_right = 7403.0
+offset_bottom = -46.0
+text = "Collect all Sphere Pieces to Enter the Sphere!"
+label_settings = SubResource("LabelSettings_oetix")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
 
 [connection signal="timeout" from="Cannons/Cannon/StaticBody2D/Timer" to="Cannons/Cannon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon2/StaticBody2D/Timer" to="Cannons/Cannon2" method="_on_timer_timeout"]

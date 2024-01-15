@@ -32,7 +32,7 @@ func _on_bubble_area_area_entered(area):
 		Engine.set_time_scale(0.01)
 		await get_tree().create_timer(0.05).timeout
 		Engine.set_time_scale(1)
-		get_tree().change_scene_to_file("res://menu.tscn")
+		SceneTransition.change_scene("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		pass
 	elif area.name=="SpherePiece_Area":
@@ -44,21 +44,46 @@ func _on_bubble_area_area_entered(area):
 		parent.set_linear_velocity(Vector2(0,-30))
 		parent.get_node("GPUParticles2D").emitting=true
 		parent.get_node("AnimatedSprite2D").set_modulate(Color(0,0,0,0))
-		await get_tree().create_timer(0.5).timeout
-		parent.get_node("GPUParticles2D").emitting=false
 		pieces+=1
 		match pieces:
 			1:
 				get_parent().get_node("BrokenSphere/AnimatedSprite2D").play("One")
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=true
+				await get_tree().create_timer(0.5).timeout
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=false
 			2:
 				get_parent().get_node("BrokenSphere/AnimatedSprite2D").play("Two")
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=true
+				await get_tree().create_timer(0.5).timeout
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=false
 			3:
 				get_parent().get_node("BrokenSphere/AnimatedSprite2D").play("Three")
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=true
+				await get_tree().create_timer(0.5).timeout
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=false
 			4:
 				get_parent().get_node("BrokenSphere/AnimatedSprite2D").play("Four")
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=true
+				await get_tree().create_timer(0.5).timeout
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=false
 			5:
 				get_parent().get_node("BrokenSphere/AnimatedSprite2D").play("Full")
+				get_parent().get_node("BrokenSphere/GPUParticles2D").emitting=true
+		#await get_tree().create_timer(0.5).timeout
+		parent.get_node("GPUParticles2D").emitting=false
 		#print(pieces)
 	elif area.name=="BrokenSphere_Area" and pieces>=5:
-		get_tree().change_scene_to_file("res://menu.tscn")
+		SceneTransition.change_scene("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+	elif area.name=="MovingObstaclesArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel2").visible=true
+	elif area.name=="SpikeArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel3").visible=true
+	elif area.name=="FireballArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel4").visible=true
+	elif area.name=="FanArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel5").visible=true
+	elif area.name=="CannonArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel6").visible=true
+	elif area.name=="SphereArea":
+		get_parent().get_node("TutorialTextandAreas/TutorialLabel7").visible=true
