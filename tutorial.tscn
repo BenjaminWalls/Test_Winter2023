@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://qiuld2doc6ee"]
+[gd_scene load_steps=103 format=3 uid="uid://qiuld2doc6ee"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_b3njx"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_g5plj"]
@@ -237,8 +237,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lfnt"]
 radius = 7.07107
 
+[sub_resource type="Curve" id="Curve_62u3e"]
+_data = [Vector2(0, 0.505494), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8sw2q"]
+curve = SubResource("Curve_62u3e")
+
 [sub_resource type="Curve" id="Curve_8p1cg"]
-max_value = 10.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.986667, 0.989011), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -246,7 +252,7 @@ point_count = 2
 curve = SubResource("Curve_8p1cg")
 
 [sub_resource type="Curve" id="Curve_f4ouh"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_anho6"]
@@ -255,7 +261,7 @@ curve = SubResource("Curve_f4ouh")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i2m07"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 52.0
+emission_sphere_radius = 32.0
 angle_min = -90.0
 angle_max = 90.0
 orbit_velocity_min = 0.02
@@ -263,10 +269,11 @@ orbit_velocity_max = 0.02
 radial_velocity_max = 100.0
 radial_velocity_curve = SubResource("CurveTexture_2e7ac")
 gravity = Vector3(0, 0, 0)
-scale_min = 8.0
-scale_max = 8.0
+scale_min = 6.0
+scale_max = 6.0
 scale_curve = SubResource("CurveTexture_anho6")
-color = Color(1, 1, 0.611765, 0.337255)
+color = Color(1, 1, 0.611765, 1)
+alpha_curve = SubResource("CurveTexture_8sw2q")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt1qv"]
 atlas = ExtResource("12_8dxme")
@@ -529,6 +536,13 @@ radius = 30.0167
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwv0w"]
 radius = 30.0666
 
+[sub_resource type="Curve" id="Curve_yi4mt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483516), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rof3n"]
+curve = SubResource("Curve_yi4mt")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eqc3h"]
 particle_flag_disable_z = true
 angle_min = -291.2
@@ -539,7 +553,8 @@ initial_velocity_min = 1500.0
 initial_velocity_max = 1500.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
-color = Color(1, 0.996078, 0.976471, 0.152941)
+scale_curve = SubResource("CurveTexture_rof3n")
+color = Color(1, 0.996078, 0.976471, 0.403922)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duxld"]
 size = Vector2(37, 475)
@@ -997,8 +1012,7 @@ animation = &"Empty"
 shape = SubResource("CircleShape2D_8lfnt")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BrokenSphere"]
-emitting = false
-amount = 600
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_i2m07")
 lifetime = 2.0
 fixed_fps = 60
@@ -1122,7 +1136,7 @@ process_material = SubResource("ParticleProcessMaterial_yat2s")
 lifetime = 1.5
 
 [node name="Bubble" type="Node2D" parent="."]
-position = Vector2(6833, 106)
+position = Vector2(-78, -6)
 script = ExtResource("15_vhta7")
 metadata/_edit_group_ = true
 
@@ -1166,7 +1180,7 @@ script = ExtResource("20_if3ns")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
 position = Vector2(24, 0)
 emitting = false
-amount = 46
+amount = 24
 process_material = SubResource("ParticleProcessMaterial_eqc3h")
 texture = ExtResource("8_ylj0g")
 lifetime = 0.04

@@ -1,7 +1,6 @@
 extends Node2D
 
 var pieces = 0
-var star = preload("res://star.tscn")
 var parent
 var vel
 
