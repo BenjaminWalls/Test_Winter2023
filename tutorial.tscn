@@ -132,9 +132,10 @@ spread = 0.0
 initial_velocity_min = 348.31
 initial_velocity_max = 505.62
 gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
+scale_min = 6.0
+scale_max = 6.0
 scale_curve = SubResource("CurveTexture_g4mo1")
+color = Color(1, 1, 1, 0.921569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1w1l"]
 size = Vector2(64, 64)
@@ -749,9 +750,8 @@ script = ExtResource("7_skci8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan/StaticBody2D"]
 modulate = Color(1, 1, 1, 0.243137)
-amount = 128
+amount = 256
 process_material = SubResource("ParticleProcessMaterial_wadi7")
-texture = ExtResource("8_ylj0g")
 lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
@@ -781,9 +781,8 @@ script = ExtResource("7_skci8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan2/StaticBody2D"]
 modulate = Color(1, 1, 1, 0.243137)
-amount = 128
+amount = 256
 process_material = SubResource("ParticleProcessMaterial_wadi7")
-texture = ExtResource("8_ylj0g")
 lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
@@ -813,9 +812,8 @@ script = ExtResource("7_skci8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan3/StaticBody2D"]
 modulate = Color(1, 1, 1, 0.243137)
-amount = 128
+amount = 256
 process_material = SubResource("ParticleProcessMaterial_wadi7")
-texture = ExtResource("8_ylj0g")
 lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
@@ -845,9 +843,8 @@ script = ExtResource("7_skci8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fans/Fan4/StaticBody2D"]
 modulate = Color(1, 1, 1, 0.243137)
-amount = 128
+amount = 256
 process_material = SubResource("ParticleProcessMaterial_wadi7")
-texture = ExtResource("8_ylj0g")
 lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
@@ -1006,9 +1003,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_kw3to")
 animation = &"Empty"
 
-[node name="BrokenSphere_Area" type="Area2D" parent="BrokenSphere"]
+[node name="BrokenSphere_Area_Tutorial" type="Area2D" parent="BrokenSphere"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area_Tutorial"]
 shape = SubResource("CircleShape2D_8lfnt")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BrokenSphere"]

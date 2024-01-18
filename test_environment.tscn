@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=96 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_c08om"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cbqf0djox6c2i" path="res://Assets/space2.png" id="20_hvaa1"]
 [ext_resource type="Texture2D" uid="uid://wdjb3md7ct7r" path="res://Assets/space3.png" id="20_s1537"]
 [ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="22_poemq"]
+[ext_resource type="Texture2D" uid="uid://dtq57ip4lvx0m" path="res://Assets/secret.png" id="24_bu6k1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
 atlas = ExtResource("8_tvyur")
@@ -490,6 +491,42 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 color = Color(1, 0.996078, 0.976471, 0.152941)
 
+[sub_resource type="Curve" id="Curve_sf04a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gtco6"]
+curve = SubResource("Curve_sf04a")
+
+[sub_resource type="Curve" id="Curve_mljmh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.746667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q342k"]
+curve = SubResource("Curve_mljmh")
+
+[sub_resource type="Curve" id="Curve_i4v6x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hsay8"]
+curve = SubResource("Curve_i4v6x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tkev0"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+angle_min = -77.5
+angle_max = 97.1
+radial_velocity_max = 10.0
+radial_velocity_curve = SubResource("CurveTexture_q342k")
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_hsay8")
+color = Color(1, 1, 0.211765, 0.392157)
+alpha_curve = SubResource("CurveTexture_gtco6")
+
 [node name="TestEnvironment" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -838,6 +875,24 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 texture = ExtResource("20_hvaa1")
 centered = false
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="Hint" type="Node2D" parent="Hints"]
+position = Vector2(-348, 146)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Hints/Hint"]
+modulate = Color(1, 1, 1, 0.682353)
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_bu6k1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Hints/Hint"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_tkev0")
+lifetime = 2.0
+visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
 
 [connection signal="timeout" from="Cannons/Cannon/StaticBody2D/Timer" to="Cannons/Cannon" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="Bubble" method="_on_bubble_area_area_entered"]

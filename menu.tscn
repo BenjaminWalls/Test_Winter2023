@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g4of3mhl7hk5"]
+[gd_scene load_steps=15 format=3 uid="uid://g4of3mhl7hk5"]
 
 [ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
 [ext_resource type="Script" path="res://menu.gd" id="1_uur1k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://c34kn43f8714j" path="res://bubparticles_3.tres" id="4_ud634"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="6_a6m0h"]
 [ext_resource type="FontFile" uid="uid://dh72flyfeta0l" path="res://BUBBLEBATH.ttf" id="7_off0i"]
+[ext_resource type="Script" path="res://Best_Time_Menu.gd" id="8_pd33o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_332g5"]
 
@@ -31,6 +32,9 @@ Button/styles/focus = SubResource("StyleBoxEmpty_332g5")
 Button/styles/hover = SubResource("StyleBoxFlat_5fann")
 Button/styles/normal = SubResource("StyleBoxFlat_tfgww")
 Button/styles/pressed = SubResource("StyleBoxFlat_nx7ik")
+
+[sub_resource type="Theme" id="Theme_5t4ce"]
+default_font = ExtResource("6_a6m0h")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -108,6 +112,42 @@ theme_override_colors/font_outline_color = Color(0, 0, 0.282353, 1)
 theme_override_fonts/font = ExtResource("7_off0i")
 theme_override_font_sizes/font_size = 100
 text = "Bubble Balls"
+
+[node name="Best_Time_Menu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 408.0
+offset_right = 168.0
+offset_bottom = 448.0
+theme = SubResource("Theme_5t4ce")
+script = ExtResource("8_pd33o")
+
+[node name="Time" type="Label" parent="Best_Time_Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Best Time: "
+
+[node name="Best_Minutes" type="Label" parent="Best_Time_Menu"]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 208.0
+offset_bottom = 23.0
+text = "00:"
+
+[node name="Best_Seconds" type="Label" parent="Best_Time_Menu"]
+layout_mode = 0
+offset_left = 208.0
+offset_right = 248.0
+offset_bottom = 23.0
+text = "00:"
+
+[node name="Best_Msec" type="Label" parent="Best_Time_Menu"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 23.0
+text = "000"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -3,6 +3,7 @@ extends Node2D
 var pieces = 0
 var parent
 var vel
+var best_time_cur: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	best_time_cur+=delta
+	#print(best_time_cur)
 	vel = get_node("BubbleRigid").linear_velocity
 	#print(get_node("BubbleRigid").linear_velocity)
 	#if vel.x >1000 or vel.x <-1000 or vel.y > 1000 or vel.y < -1000:
@@ -71,10 +74,15 @@ func _on_bubble_area_area_entered(area):
 		#await get_tree().create_timer(0.5).timeout
 		parent.get_node("GPUParticles2D").emitting=false
 		#print(pieces)
+	elif area.name=="BrokenSphere_Area_Tutorial" and pieces>=5:
+		$BubbleRigid/AnimatedSprite2D.play("fast")
+		SceneTransition.change_scene("res://demo_level.tscn")
+		#DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	elif area.name=="BrokenSphere_Area" and pieces>=5:
 		$BubbleRigid/AnimatedSprite2D.play("fast")
-		SceneTransition.change_scene("res://menu.tscn")
+		get_tree().change_scene_to_file("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+		BestTimeMenu.set_best_time(best_time_cur)
 	elif area.name=="MovingObstaclesArea":
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel2").visible=true
 	elif area.name=="SpikeArea":
@@ -87,3 +95,37 @@ func _on_bubble_area_area_entered(area):
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel6").visible=true
 	elif area.name=="SphereArea":
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel7").visible=true
+
+
+func _on_hint_4_area_entered(area):
+	if area.name=="Bubble_Area":
+		get_parent().get_node("Hints/Hint4/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint4/GPUParticles2D").emitting=false
+
+
+func _on_hint_5_area_entered(area):
+	if area.name=="Bubble_Area":
+		get_parent().get_node("Hints/Hint5/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint5/GPUParticles2D").emitting=false
+
+
+func _on_hint_3_area_entered(area):
+	if area.name=="Bubble_Area":
+		get_parent().get_node("Hints/Hint3/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint3/GPUParticles2D").emitting=false
+
+
+func _on_hint_1_area_entered(area):
+	if area.name=="Bubble_Area":
+		get_parent().get_node("CannonballAreas/DestroyCannonball").set_global_position(Vector2(-3130,-463))
+		get_parent().get_node("Hints/Hint/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint/GPUParticles2D").emitting=false
+
+
+func _on_hint_2_area_entered(area):
+	if area.name=="Bubble_Area":
+		get_parent().get_node("Spikes/Spike170").set_global_position(Vector2(749,2116))
+		get_parent().get_node("CannonballAreas/DestroyCannonball4").set_global_position(Vector2(488,2963))
+		get_parent().get_node("CannonballAreas/DestroyCannonball5").set_global_position(Vector2(-267,2794))
+		get_parent().get_node("Hints/Hint2/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint2/GPUParticles2D").emitting=false

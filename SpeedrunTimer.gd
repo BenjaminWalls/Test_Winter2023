@@ -16,3 +16,6 @@ func _process(delta) -> void:
 	$Minutes.text = "%02d:" % minutes
 	$Seconds.text = "%02d:" % seconds
 	$Milliseconds.text = "%03d" % msec
+
+func get_time():
+	return time
