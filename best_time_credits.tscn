@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://5nhjfvnqxxue"]
+
+[ext_resource type="Script" path="res://BestTimeCredits.gd" id="1_xcp6a"]
+[ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="2_rjbvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evvqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48pa5"]
+content_margin_bottom = 30.0
+bg_color = Color(0.313726, 0.65098, 0.772549, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hytej"]
+content_margin_bottom = 30.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1bis"]
+content_margin_bottom = 25.0
+bg_color = Color(0.313726, 0.607843, 0.960784, 0)
+
+[sub_resource type="Theme" id="Theme_p52fh"]
+Button/colors/font_hover_color = Color(0.631373, 0.94902, 0.94902, 1)
+Button/colors/font_pressed_color = Color(0.188235, 0.584314, 1, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("2_rjbvb")
+Button/styles/focus = SubResource("StyleBoxEmpty_evvqq")
+Button/styles/hover = SubResource("StyleBoxFlat_48pa5")
+Button/styles/normal = SubResource("StyleBoxFlat_hytej")
+Button/styles/pressed = SubResource("StyleBoxFlat_u1bis")
+
+[node name="BestTimeCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcp6a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.521569, 0.584314, 0.921569, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -352.0
+offset_right = 336.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_p52fh")
+metadata/_edit_group_ = true
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Return to Menu"
+
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
