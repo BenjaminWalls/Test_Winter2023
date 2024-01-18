@@ -3,7 +3,6 @@ extends Node2D
 var pieces = 0
 var parent
 var vel
-var best_time_cur: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +12,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	best_time_cur+=delta
 	#print(best_time_cur)
 	vel = get_node("BubbleRigid").linear_velocity
 	#print(get_node("BubbleRigid").linear_velocity)
@@ -82,7 +80,6 @@ func _on_bubble_area_area_entered(area):
 		$BubbleRigid/AnimatedSprite2D.play("fast")
 		get_tree().change_scene_to_file("res://menu.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
-		BestTimeMenu.set_best_time(best_time_cur)
 	elif area.name=="MovingObstaclesArea":
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel2").visible=true
 	elif area.name=="SpikeArea":

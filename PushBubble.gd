@@ -4,11 +4,8 @@ var Mouse_Position
 var force = 1
 var velocity
 
-func _process(delta):
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	Mouse_Position=get_parent().global_position - get_parent().get_parent().get_node("Bubble/BubbleRigid").global_position
 	velocity=get_parent().get_parent().get_node("Bubble/BubbleRigid").get_linear_velocity()
 	#print("velocity: ", velocity)

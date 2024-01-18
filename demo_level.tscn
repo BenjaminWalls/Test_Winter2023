@@ -234,16 +234,6 @@ var pieces = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_sphere_piece_area_area_entered(area):
-	
-	pass # Replace with function body.
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hq6g"]
@@ -4893,7 +4883,7 @@ progress = 0.0
 rotates = false
 
 [node name="AnimatableBody2D" parent="Fireballs/Fireball71/Move" index="1"]
-position = Vector2(470.811, -161.937)
+position = Vector2(470.812, -161.937)
 
 [node name="Fireball69" parent="Fireballs" instance=ExtResource("5_bm3n4")]
 position = Vector2(436, 4213)
