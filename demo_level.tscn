@@ -6652,7 +6652,6 @@ shape = SubResource("RectangleShape2D_0l4vx")
 [connection signal="area_entered" from="Hints/HintAreas/Hint2" to="Bubble" method="_on_hint_2_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint5" to="Bubble" method="_on_hint_5_area_entered"]
 [connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="Bubble" method="_on_bubble_area_area_entered"]
-[connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="CanvasLayer" method="_on_bubble_area_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan2/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan24/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan3/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
