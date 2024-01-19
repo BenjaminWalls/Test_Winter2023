@@ -12,10 +12,15 @@ func _process(delta) -> void:
 	msec = fmod(time,1)*100
 	seconds = fmod(time,60)
 	minutes = fmod(time,3600)/60
-	
 	$Minutes.text = "%02d:" % minutes
 	$Seconds.text = "%02d:" % seconds
 	$Milliseconds.text = "%03d" % msec
 
-func get_time():
+func getTime():
 	return time
+
+
+func _on_broken_sphere_area_area_entered(area):
+	if area.name=="Bubble_Area":
+		GlobalVariables.retrieveTime(time)
+	pass # Replace with function body.

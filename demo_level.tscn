@@ -1,7 +1,6 @@
-[gd_scene load_steps=130 format=3 uid="uid://cd2eepkckw3vn"]
+[gd_scene load_steps=129 format=3 uid="uid://cd2eepkckw3vn"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_pmr17"]
-[ext_resource type="Script" path="res://global_stuff.gd" id="1_u68tg"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_dmicb"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_u68up"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="3_hw0c1"]
@@ -312,7 +311,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebx7b"]
-radius = 7.07107
+radius = 9.0
 
 [sub_resource type="Curve" id="Curve_sysyy"]
 _data = [Vector2(0, 0.505494), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -684,7 +683,6 @@ size = Vector2(105, 915)
 size = Vector2(253, 456)
 
 [node name="DemoLevel" type="Node2D"]
-script = ExtResource("1_u68tg")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -6576,7 +6574,7 @@ text = "00"
 label_settings = SubResource("LabelSettings_ian8r")
 horizontal_alignment = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Goal" type="Label" parent="."]
 texture_filter = 1
 offset_left = -166.0
 offset_top = 124.0
@@ -6647,12 +6645,14 @@ shape = SubResource("RectangleShape2D_0l4vx")
 [connection signal="timeout" from="Cannons/Cannon14/StaticBody2D/Timer" to="Cannons/Cannon14" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon15/StaticBody2D/Timer" to="Cannons/Cannon15" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon16/StaticBody2D/Timer" to="Cannons/Cannon16" method="_on_timer_timeout"]
+[connection signal="area_entered" from="BrokenSphere/BrokenSphere_Area" to="CanvasLayer/SpeedrunTimer" method="_on_broken_sphere_area_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint4" to="Bubble" method="_on_hint_4_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint3" to="Bubble" method="_on_hint_3_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint1" to="Bubble" method="_on_hint_1_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint2" to="Bubble" method="_on_hint_2_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint5" to="Bubble" method="_on_hint_5_area_entered"]
 [connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="Bubble" method="_on_bubble_area_area_entered"]
+[connection signal="area_entered" from="Bubble/BubbleRigid/Bubble_Area" to="CanvasLayer" method="_on_bubble_area_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan2/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan24/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan3/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]

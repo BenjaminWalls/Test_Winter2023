@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://5nhjfvnqxxue"]
+[gd_scene load_steps=12 format=3 uid="uid://5nhjfvnqxxue"]
 
 [ext_resource type="Script" path="res://BestTimeCredits.gd" id="1_xcp6a"]
+[ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="2_hmgaa"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="2_rjbvb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evvqq"]
@@ -27,6 +28,18 @@ Button/styles/hover = SubResource("StyleBoxFlat_48pa5")
 Button/styles/normal = SubResource("StyleBoxFlat_hytej")
 Button/styles/pressed = SubResource("StyleBoxFlat_u1bis")
 
+[sub_resource type="LabelSettings" id="LabelSettings_iefvy"]
+font = ExtResource("2_rjbvb")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nsk7"]
+font = ExtResource("2_rjbvb")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_28s0e"]
+font = ExtResource("2_rjbvb")
+font_size = 48
+
 [node name="BestTimeCredits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -42,6 +55,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.521569, 0.584314, 0.921569, 1)
 metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hmgaa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -62,5 +82,79 @@ metadata/_edit_group_ = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Return to Menu"
+
+[node name="SpeedrunTimer" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 176.0
+offset_right = 327.0
+offset_bottom = 324.0
+grow_horizontal = 2
+pivot_offset = Vector2(212, 74)
+
+[node name="Minutes" type="Label" parent="SpeedrunTimer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -27.0
+offset_right = 73.0
+offset_bottom = 27.0
+grow_vertical = 2
+text = "00:"
+label_settings = SubResource("LabelSettings_iefvy")
+horizontal_alignment = 2
+
+[node name="TimeText" type="Label" parent="SpeedrunTimer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -26.0
+offset_right = 50.0
+offset_bottom = 28.0
+grow_vertical = 2
+text = "Time: "
+label_settings = SubResource("LabelSettings_iefvy")
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="SpeedrunTimer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -27.0
+offset_right = 38.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:"
+label_settings = SubResource("LabelSettings_8nsk7")
+horizontal_alignment = 2
+
+[node name="Milliseconds" type="Label" parent="SpeedrunTimer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -28.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_28s0e")
+horizontal_alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

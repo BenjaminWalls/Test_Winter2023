@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#print(best_time_cur)
 	vel = get_node("BubbleRigid").linear_velocity
 	#print(get_node("BubbleRigid").linear_velocity)
@@ -77,8 +77,8 @@ func _on_bubble_area_area_entered(area):
 		SceneTransition.change_scene("res://demo_level.tscn")
 		#DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	elif area.name=="BrokenSphere_Area" and pieces>=5:
-		$BubbleRigid/AnimatedSprite2D.play("fast")
-		get_tree().change_scene_to_file("res://menu.tscn")
+		#$BubbleRigid/AnimatedSprite2D.play("fast")
+		get_tree().change_scene_to_file("res://best_time_credits.tscn")
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	elif area.name=="MovingObstaclesArea":
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel2").visible=true
