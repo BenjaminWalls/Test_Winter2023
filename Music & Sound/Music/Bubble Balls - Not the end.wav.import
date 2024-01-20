@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6kvy7v1urssj"
+path="res://.godot/imported/Bubble Balls - Not the end.wav-f6340de97682505ec4d4a57319f3c42c.sample"
+
+[deps]
+
+source_file="res://Music & Sound/Music/Bubble Balls - Not the end.wav"
+dest_files=["res://.godot/imported/Bubble Balls - Not the end.wav-f6340de97682505ec4d4a57319f3c42c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

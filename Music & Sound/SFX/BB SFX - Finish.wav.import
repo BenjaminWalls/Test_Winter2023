@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh6r8vg1uqy7p"
+path="res://.godot/imported/BB SFX - Finish.wav-aae205cfcbd5ccc5c0d58a97445b8f19.sample"
+
+[deps]
+
+source_file="res://Music & Sound/SFX/BB SFX - Finish.wav"
+dest_files=["res://.godot/imported/BB SFX - Finish.wav-aae205cfcbd5ccc5c0d58a97445b8f19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

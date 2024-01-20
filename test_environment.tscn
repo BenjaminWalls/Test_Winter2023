@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://04m5y8xj8xtj"]
+[gd_scene load_steps=93 format=3 uid="uid://04m5y8xj8xtj"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_c08om"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="1_duac7"]
@@ -13,10 +13,8 @@
 [ext_resource type="Script" path="res://Fan.gd" id="9_vsxin"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="10_75fcp"]
 [ext_resource type="Texture2D" uid="uid://rsg2qk2mbxxx" path="res://Assets/sphere_piece_collect.png" id="12_5u5tq"]
-[ext_resource type="Texture2D" uid="uid://d0dunx8tb2lfe" path="res://Assets/TileMap/wall.png" id="12_eth52"]
 [ext_resource type="Texture2D" uid="uid://cngblqnq68xuo" path="res://Assets/cannon.png" id="13_elndi"]
 [ext_resource type="Script" path="res://Cannon.gd" id="13_iv4l7"]
-[ext_resource type="Script" path="res://Block.gd" id="13_kq3ao"]
 [ext_resource type="Texture2D" uid="uid://cluhphw08i8qr" path="res://Assets/sphere_piece.png" id="13_molfs"]
 [ext_resource type="Texture2D" uid="uid://dqyuacny1bhx6" path="res://Assets/sphere_piece_collect_2.png" id="13_twryp"]
 [ext_resource type="Texture2D" uid="uid://4xjcgwsa02dt" path="res://Assets/sphere-sheet.png" id="17_g0l5h"]
@@ -63,9 +61,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_buygo"]
 radius = 29.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xire"]
-size = Vector2(16, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_tnn77"]
 _data = {
@@ -553,23 +548,6 @@ autoplay = "spin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Spike/Spike_Area"]
 shape = SubResource("CircleShape2D_buygo")
-
-[node name="RotatingBlocks" type="Node2D" parent="."]
-position = Vector2(-44, 10)
-
-[node name="RotatingBlock" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(103, 201)
-script = ExtResource("13_kq3ao")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("12_eth52")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_7xire")
 
 [node name="Fireballs" type="Node2D" parent="."]
 

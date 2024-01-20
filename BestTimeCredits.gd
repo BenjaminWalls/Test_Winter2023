@@ -1,6 +1,6 @@
 extends Control
 
-var show_time
+var show_time: float = 0.0
 var minutes: int = 0
 var seconds: int = 0
 var msec: int = 0
@@ -18,3 +18,8 @@ func _ready():
 
 func _on_return_button_pressed():
 	SceneTransition.change_scene("res://menu.tscn")
+	$Return.play()
+
+
+func _on_return_button_mouse_entered():
+	$Select.play()

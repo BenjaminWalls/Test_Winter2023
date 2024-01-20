@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2q1ygjksvfb2"]
+[gd_scene load_steps=6 format=3 uid="uid://b2q1ygjksvfb2"]
 
 [ext_resource type="Script" path="res://scene_transition.gd" id="1_ukfbt"]
+[ext_resource type="AudioStream" uid="uid://dh6r8vg1uqy7p" path="res://Music & Sound/SFX/BB SFX - Finish.wav" id="2_5gbgd"]
 
 [sub_resource type="Animation" id="Animation_xjcv5"]
 resource_name = "RESET"
@@ -55,3 +56,7 @@ mouse_filter = 2
 libraries = {
 "": SubResource("AnimationLibrary_ltkuh")
 }
+
+[node name="Finish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5gbgd")
+volume_db = -10.0

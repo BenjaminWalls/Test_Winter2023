@@ -1,11 +1,9 @@
-[gd_scene load_steps=129 format=3 uid="uid://cd2eepkckw3vn"]
+[gd_scene load_steps=131 format=3 uid="uid://cd2eepkckw3vn"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_pmr17"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_dmicb"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_u68up"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="3_hw0c1"]
-[ext_resource type="Script" path="res://Block.gd" id="3_ndef1"]
-[ext_resource type="Texture2D" uid="uid://d0dunx8tb2lfe" path="res://Assets/TileMap/wall.png" id="4_822bj"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="4_htqn2"]
 [ext_resource type="PackedScene" uid="uid://w2wpboqk6def" path="res://fireball.tscn" id="5_bm3n4"]
 [ext_resource type="Texture2D" uid="uid://wdjb3md7ct7r" path="res://Assets/space3.png" id="5_jmrwf"]
@@ -26,6 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://dqyuacny1bhx6" path="res://Assets/sphere_piece_collect_2.png" id="13_s0hv8"]
 [ext_resource type="Texture2D" uid="uid://cluhphw08i8qr" path="res://Assets/sphere_piece.png" id="14_d20bw"]
 [ext_resource type="Texture2D" uid="uid://dtq57ip4lvx0m" path="res://Assets/secret.png" id="14_prlav"]
+[ext_resource type="AudioStream" uid="uid://b4pgiv5oof2v6" path="res://Music & Sound/SFX/BB SFX - Death.wav" id="18_n5i8v"]
+[ext_resource type="AudioStream" uid="uid://b0hkx3ynh8ilj" path="res://Music & Sound/SFX/BB SFX - Collect.wav" id="19_3ieb7"]
+[ext_resource type="AudioStream" uid="uid://cwvng8a67agj1" path="res://Music & Sound/SFX/BB SFX - Blow.wav" id="23_k2lq2"]
+[ext_resource type="AudioStream" uid="uid://cb7n0wtfrrmc2" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="27_5h6wt"]
+[ext_resource type="Texture2D" uid="uid://dvrpoy614nn8t" path="res://Assets/arrow.png" id="29_n6sau"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
 atlas = ExtResource("2_u68up")
@@ -65,9 +68,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pps6a"]
 radius = 29.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukqwg"]
-size = Vector2(16, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_5a7q1"]
 _data = {
@@ -3537,149 +3537,6 @@ autoplay = "spin"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Spike65/Spike_Area"]
 shape = SubResource("CircleShape2D_pps6a")
 
-[node name="RotatingBlocks" type="Node2D" parent="."]
-position = Vector2(-44, 10)
-
-[node name="RotatingBlock" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(350, -805)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock2" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(-269, -799)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock2"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock2"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock3" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(46, -1146)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock3"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock3"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock4" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(-578, -1142)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock4"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock4"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock8" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(-966, -875)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock8"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock8"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock9" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(-1305, -744)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock9"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock9"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock10" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(-1104, -538)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock10"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock10"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock5" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(654, -1152)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock5"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock5"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock7" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(930, -806)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock7"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock7"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
-[node name="RotatingBlock6" type="AnimatableBody2D" parent="RotatingBlocks"]
-position = Vector2(396, -1438)
-script = ExtResource("3_ndef1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingBlocks/RotatingBlock6"]
-texture_filter = 1
-scale = Vector2(12, 4)
-texture = ExtResource("4_822bj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingBlocks/RotatingBlock6"]
-scale = Vector2(12, 4)
-shape = SubResource("RectangleShape2D_ukqwg")
-
 [node name="Fireballs" type="Node2D" parent="."]
 
 [node name="Fireball" parent="Fireballs" instance=ExtResource("5_bm3n4")]
@@ -4966,7 +4823,7 @@ lifetime = 1.25
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="Fan3" type="Node2D" parent="Fans"]
-position = Vector2(-1006, -1655)
+position = Vector2(-1021, -1629)
 rotation = -0.0101104
 metadata/_edit_group_ = true
 
@@ -6100,7 +5957,7 @@ visibility_rect = Rect2(-47.9888, -46.3209, 96.3999, 92.6741)
 [node name="SpherePieces" type="Node2D" parent="."]
 
 [node name="SpherePiece" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-37, -224)
+position = Vector2(11, 4154)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6123,7 +5980,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece2" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-9, -389)
+position = Vector2(6080, -205)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6146,7 +6003,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece3" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-53, -320)
+position = Vector2(282, -5600)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6169,7 +6026,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece4" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-123, -149)
+position = Vector2(-5327, -70)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6192,7 +6049,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece5" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-52, -311)
+position = Vector2(1031, -2272)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6368,6 +6225,13 @@ shape = SubResource("CircleShape2D_wksn8")
 
 [node name="Speedrun" type="Node2D" parent="Bubble"]
 
+[node name="Death" type="AudioStreamPlayer" parent="Bubble"]
+stream = ExtResource("18_n5i8v")
+
+[node name="Collect" type="AudioStreamPlayer" parent="Bubble"]
+stream = ExtResource("19_3ieb7")
+volume_db = -5.0
+
 [node name="Air" type="Node2D" parent="."]
 position = Vector2(66, -33)
 script = ExtResource("5_m214q")
@@ -6382,6 +6246,10 @@ position = Vector2(24, 0)
 target_position = Vector2(110, 0)
 script = ExtResource("7_cbpr2")
 
+[node name="BlowSFX" type="AudioStreamPlayer" parent="Air/PushBubble"]
+stream = ExtResource("23_k2lq2")
+volume_db = -3.0
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Air"]
 position = Vector2(24, 0)
 emitting = false
@@ -6389,6 +6257,7 @@ amount = 46
 process_material = SubResource("ParticleProcessMaterial_u1lc2")
 texture = ExtResource("8_7kvcs")
 lifetime = 0.04
+fixed_fps = 60
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
@@ -6625,6 +6494,17 @@ position = Vector2(-186, -1501)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StopFan"]
 position = Vector2(467, -4096)
 shape = SubResource("RectangleShape2D_0l4vx")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_5h6wt")
+autoplay = true
+
+[node name="Arrow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.670588)
+texture_filter = 1
+position = Vector2(2034, 2849)
+rotation = -2.35619
+texture = ExtResource("29_n6sau")
 
 [connection signal="timeout" from="Cannons/Cannon4/StaticBody2D/Timer" to="Cannons/Cannon4" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon17/StaticBody2D/Timer" to="Cannons/Cannon17" method="_on_timer_timeout"]

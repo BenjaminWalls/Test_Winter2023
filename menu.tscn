@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g4of3mhl7hk5"]
+[gd_scene load_steps=24 format=3 uid="uid://g4of3mhl7hk5"]
 
 [ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
 [ext_resource type="Script" path="res://menu.gd" id="1_uur1k"]
@@ -6,20 +6,33 @@
 [ext_resource type="Material" uid="uid://bf31f48pwss1f" path="res://bubparticles_2.tres" id="3_qdtf8"]
 [ext_resource type="Material" uid="uid://c34kn43f8714j" path="res://bubparticles_3.tres" id="4_ud634"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="6_a6m0h"]
+[ext_resource type="Texture2D" uid="uid://cxktw6laj1yaj" path="res://Assets/CheckButton2.png" id="7_gdolc"]
+[ext_resource type="AudioStream" uid="uid://bnqdkect4b107" path="res://Music & Sound/SFX/BB SFX - Select.wav" id="7_ljlbr"]
 [ext_resource type="FontFile" uid="uid://dh72flyfeta0l" path="res://BUBBLEBATH.ttf" id="7_off0i"]
+[ext_resource type="Texture2D" uid="uid://dwej5cqhyh87f" path="res://Assets/OptionButton2.png" id="7_yee6q"]
+[ext_resource type="Texture2D" uid="uid://w4lxlgmhgar3" path="res://Assets/OptionButton1.png" id="8_8o8cy"]
+[ext_resource type="Texture2D" uid="uid://q1eya42vr2b4" path="res://Assets/CheckButton1.png" id="8_fe8qc"]
+[ext_resource type="AudioStream" uid="uid://c2ic82cseafp8" path="res://Music & Sound/Music/Bubble Balls - Main Menu.wav" id="8_ti128"]
+[ext_resource type="AudioStream" uid="uid://dpuruxct2eo1j" path="res://Music & Sound/SFX/BB SFX - Start.wav" id="10_am4r1"]
+[ext_resource type="Texture2D" uid="uid://balxo0jrel6y6" path="res://Assets/demoorbetaorsumn.png" id="11_yev1v"]
+[ext_resource type="AudioStream" uid="uid://8i7id1ukvkv8" path="res://Music & Sound/SFX/BB SFX - Select2.wav" id="15_iyvdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a78of"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8gd7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inwio"]
+content_margin_top = 30.0
 content_margin_bottom = 30.0
 bg_color = Color(0.313726, 0.65098, 0.772549, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbgu7"]
+content_margin_top = 30.0
 content_margin_bottom = 30.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug6dv"]
-content_margin_bottom = 25.0
+content_margin_bottom = 10.0
 bg_color = Color(0.313726, 0.607843, 0.960784, 0)
 
 [sub_resource type="Theme" id="Theme_bsgrq"]
@@ -27,10 +40,20 @@ Button/colors/font_hover_color = Color(0.631373, 0.94902, 0.94902, 1)
 Button/colors/font_pressed_color = Color(0.188235, 0.584314, 1, 1)
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("6_a6m0h")
+Button/styles/disabled = SubResource("StyleBoxEmpty_a78of")
 Button/styles/focus = SubResource("StyleBoxEmpty_o8gd7")
 Button/styles/hover = SubResource("StyleBoxFlat_inwio")
 Button/styles/normal = SubResource("StyleBoxFlat_kbgu7")
 Button/styles/pressed = SubResource("StyleBoxFlat_ug6dv")
+CheckBox/icons/checked = ExtResource("7_yee6q")
+CheckBox/icons/unchecked = ExtResource("8_8o8cy")
+CheckBox/icons/unchecked_disabled = ExtResource("8_8o8cy")
+CheckButton/icons/checked = ExtResource("7_gdolc")
+CheckButton/icons/unchecked = ExtResource("8_fe8qc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gd5ew"]
+font = ExtResource("6_a6m0h")
+font_size = 32
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -78,21 +101,55 @@ texture = ExtResource("2_pm6qh")
 lifetime = 44.0
 visibility_rect = Rect2(-958.596, -1281.24, 1947.19, 1297.17)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MenuOptions" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 616.0
-offset_right = 360.0
-offset_bottom = 968.0
+offset_left = 128.0
+offset_top = 368.0
+offset_right = 824.0
+offset_bottom = 1004.0
 theme = SubResource("Theme_bsgrq")
 metadata/_edit_group_ = true
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="MenuOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Blow" type="Label" parent="MenuOptions/CheckButton"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 72.0
+offset_right = -20.0
+offset_bottom = 104.0
+text = "Blow"
+label_settings = SubResource("LabelSettings_gd5ew")
+
+[node name="Suck" type="Label" parent="MenuOptions/CheckButton"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 72.0
+offset_right = 276.0
+offset_bottom = 104.0
+text = "Suck"
+label_settings = SubResource("LabelSettings_gd5ew")
+
+[node name="StartButton2" type="Button" parent="MenuOptions"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="Hard Mode" type="Button" parent="MenuOptions"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+disabled = true
+text = "Hard Mode"
+
+[node name="CheckBoxBen" type="CheckBox" parent="MenuOptions"]
+layout_mode = 2
+disabled = true
+text = "Ben Mode"
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="MenuOptions"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
@@ -109,5 +166,34 @@ theme_override_fonts/font = ExtResource("7_off0i")
 theme_override_font_sizes/font_size = 100
 text = "Bubble Balls"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ti128")
+volume_db = -5.0
+autoplay = true
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ljlbr")
+volume_db = -2.0
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_am4r1")
+volume_db = -15.0
+
+[node name="Select2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_iyvdc")
+
+[node name="Demo" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 168.0
+offset_right = 1704.0
+offset_bottom = 400.0
+texture = ExtResource("11_yev1v")
+
+[connection signal="pressed" from="MenuOptions/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/StartButton2" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/StartButton2" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/Hard Mode" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_entered" from="MenuOptions/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://5nhjfvnqxxue"]
+[gd_scene load_steps=15 format=3 uid="uid://5nhjfvnqxxue"]
 
 [ext_resource type="Script" path="res://BestTimeCredits.gd" id="1_xcp6a"]
 [ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="2_hmgaa"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="2_rjbvb"]
+[ext_resource type="AudioStream" uid="uid://6kvy7v1urssj" path="res://Music & Sound/Music/Bubble Balls - Not the end.wav" id="4_21fc4"]
+[ext_resource type="AudioStream" uid="uid://bnqdkect4b107" path="res://Music & Sound/SFX/BB SFX - Select.wav" id="5_55exd"]
+[ext_resource type="AudioStream" uid="uid://8i7id1ukvkv8" path="res://Music & Sound/SFX/BB SFX - Select2.wav" id="6_5uvxw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evvqq"]
 
@@ -53,10 +56,11 @@ script = ExtResource("1_xcp6a")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.521569, 0.584314, 0.921569, 1)
+color = Color(0.788235, 0.392157, 0.545098, 1)
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.643137, 0.662745, 0.831373, 1)
 texture_filter = 1
 layout_mode = 0
 offset_right = 1920.0
@@ -157,4 +161,17 @@ text = "00"
 label_settings = SubResource("LabelSettings_28s0e")
 horizontal_alignment = 2
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_21fc4")
+autoplay = true
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_55exd")
+volume_db = -2.0
+
+[node name="Return" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5uvxw")
+volume_db = -2.0
+
+[connection signal="mouse_entered" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
