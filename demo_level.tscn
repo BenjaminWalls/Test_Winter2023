@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://cd2eepkckw3vn"]
+[gd_scene load_steps=145 format=3 uid="uid://cd2eepkckw3vn"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_pmr17"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_dmicb"]
@@ -24,11 +24,14 @@
 [ext_resource type="Texture2D" uid="uid://dqyuacny1bhx6" path="res://Assets/sphere_piece_collect_2.png" id="13_s0hv8"]
 [ext_resource type="Texture2D" uid="uid://cluhphw08i8qr" path="res://Assets/sphere_piece.png" id="14_d20bw"]
 [ext_resource type="Texture2D" uid="uid://dtq57ip4lvx0m" path="res://Assets/secret.png" id="14_prlav"]
+[ext_resource type="Texture2D" uid="uid://bwqac7p4oi746" path="res://Assets/benbubble.png" id="14_xohwd"]
+[ext_resource type="Texture2D" uid="uid://bslikayub7km1" path="res://Assets/benbubble_death.png" id="15_v2w3u"]
 [ext_resource type="AudioStream" uid="uid://b4pgiv5oof2v6" path="res://Music & Sound/SFX/BB SFX - Death.wav" id="18_n5i8v"]
 [ext_resource type="AudioStream" uid="uid://b0hkx3ynh8ilj" path="res://Music & Sound/SFX/BB SFX - Collect.wav" id="19_3ieb7"]
 [ext_resource type="AudioStream" uid="uid://cwvng8a67agj1" path="res://Music & Sound/SFX/BB SFX - Blow.wav" id="23_k2lq2"]
-[ext_resource type="AudioStream" uid="uid://cb7n0wtfrrmc2" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="27_5h6wt"]
+[ext_resource type="AudioStream" uid="uid://bc368r47t2b41" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="27_5h6wt"]
 [ext_resource type="Texture2D" uid="uid://dvrpoy614nn8t" path="res://Assets/arrow.png" id="29_n6sau"]
+[ext_resource type="AudioStream" uid="uid://bnjd7siernmhl" path="res://Music & Sound/Music/BenSong.wav" id="32_86lch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
 atlas = ExtResource("2_u68up")
@@ -550,6 +553,38 @@ alpha_curve = SubResource("CurveTexture_r8wvk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa2f3"]
 size = Vector2(147, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt1hy"]
+atlas = ExtResource("14_xohwd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yuey"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg3c2"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6hsf"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8kv2"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w74ve"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_207tc"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_536r6"]
+atlas = ExtResource("15_v2w3u")
+region = Rect2(96, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("3_hw0c1")
 region = Rect2(0, 0, 16, 16)
@@ -592,6 +627,40 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68qjq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt1hy")
+}],
+"loop": true,
+"name": &"Ben",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yuey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg3c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6hsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8kv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w74ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_207tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_536r6")
+}],
+"loop": false,
+"name": &"BenDeath",
+"speed": 90.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dyqt2")
@@ -650,6 +719,29 @@ initial_velocity_max = 1500.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 color = Color(1, 0.996078, 0.976471, 0.152941)
+
+[sub_resource type="Curve" id="Curve_5dqew"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7db7t"]
+curve = SubResource("Curve_5dqew")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h2gqj"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(80, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 52.77
+angle_min = -161.8
+angle_max = 129.4
+direction = Vector3(-100, 0, 0)
+spread = 4.551
+initial_velocity_min = 1500.0
+initial_velocity_max = 1500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_7db7t")
+color = Color(1, 1, 1, 0.313726)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xa4sa"]
 font = ExtResource("10_1q5cr")
@@ -5941,9 +6033,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_smjqs")
 animation = &"Empty"
 
-[node name="BrokenSphere_Area" type="Area2D" parent="BrokenSphere"]
+[node name="BrokenSphere_Area_Hard" type="Area2D" parent="BrokenSphere"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area_Hard"]
 shape = SubResource("CircleShape2D_ebx7b")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BrokenSphere"]
@@ -6259,6 +6351,14 @@ texture = ExtResource("8_7kvcs")
 lifetime = 0.04
 fixed_fps = 60
 
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Air"]
+position = Vector2(24, 0)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_h2gqj")
+texture = ExtResource("8_7kvcs")
+lifetime = 0.04
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
@@ -6497,7 +6597,6 @@ shape = SubResource("RectangleShape2D_0l4vx")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_5h6wt")
-autoplay = true
 
 [node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.670588)
@@ -6505,6 +6604,9 @@ texture_filter = 1
 position = Vector2(2034, 2849)
 rotation = -2.35619
 texture = ExtResource("29_n6sau")
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_86lch")
 
 [connection signal="timeout" from="Cannons/Cannon4/StaticBody2D/Timer" to="Cannons/Cannon4" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon17/StaticBody2D/Timer" to="Cannons/Cannon17" method="_on_timer_timeout"]
@@ -6525,7 +6627,7 @@ texture = ExtResource("29_n6sau")
 [connection signal="timeout" from="Cannons/Cannon14/StaticBody2D/Timer" to="Cannons/Cannon14" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon15/StaticBody2D/Timer" to="Cannons/Cannon15" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon16/StaticBody2D/Timer" to="Cannons/Cannon16" method="_on_timer_timeout"]
-[connection signal="area_entered" from="BrokenSphere/BrokenSphere_Area" to="CanvasLayer/SpeedrunTimer" method="_on_broken_sphere_area_area_entered"]
+[connection signal="area_entered" from="BrokenSphere/BrokenSphere_Area_Hard" to="CanvasLayer/SpeedrunTimer" method="_on_broken_sphere_area_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint4" to="Bubble" method="_on_hint_4_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint3" to="Bubble" method="_on_hint_3_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint1" to="Bubble" method="_on_hint_1_area_entered"]

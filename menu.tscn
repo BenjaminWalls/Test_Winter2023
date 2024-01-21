@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://g4of3mhl7hk5"]
+[gd_scene load_steps=26 format=3 uid="uid://g4of3mhl7hk5"]
 
 [ext_resource type="Material" uid="uid://ctgousk0ompkn" path="res://bubparticles_1.tres" id="1_p47ug"]
 [ext_resource type="Script" path="res://menu.gd" id="1_uur1k"]
@@ -35,6 +35,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 content_margin_bottom = 10.0
 bg_color = Color(0.313726, 0.607843, 0.960784, 0)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27ytw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aki6s"]
+
 [sub_resource type="Theme" id="Theme_bsgrq"]
 Button/colors/font_hover_color = Color(0.631373, 0.94902, 0.94902, 1)
 Button/colors/font_pressed_color = Color(0.188235, 0.584314, 1, 1)
@@ -48,6 +52,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_ug6dv")
 CheckBox/icons/checked = ExtResource("7_yee6q")
 CheckBox/icons/unchecked = ExtResource("8_8o8cy")
 CheckBox/icons/unchecked_disabled = ExtResource("8_8o8cy")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_27ytw")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_aki6s")
 CheckButton/icons/checked = ExtResource("7_gdolc")
 CheckButton/icons/unchecked = ExtResource("8_fe8qc")
 
@@ -137,11 +143,11 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Start"
 
-[node name="Hard Mode" type="Button" parent="MenuOptions"]
+[node name="The Challenge" type="Button" parent="MenuOptions"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 disabled = true
-text = "Hard Mode"
+text = "The Challenge"
 
 [node name="CheckBoxBen" type="CheckBox" parent="MenuOptions"]
 layout_mode = 2
@@ -154,7 +160,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 200.0
@@ -194,6 +200,9 @@ texture = ExtResource("11_yev1v")
 [connection signal="pressed" from="MenuOptions/CheckButton" to="." method="_on_check_button_pressed"]
 [connection signal="mouse_entered" from="MenuOptions/StartButton2" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="MenuOptions/StartButton2" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="MenuOptions/Hard Mode" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_entered" from="MenuOptions/The Challenge" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/The Challenge" to="." method="_on_hard_mode_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/CheckBoxBen" to="." method="_on_check_box_ben_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/CheckBoxBen" to="." method="_on_check_box_ben_pressed"]
 [connection signal="mouse_entered" from="MenuOptions/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://ck84n8vn7h1o4"]
+[gd_scene load_steps=145 format=3 uid="uid://ck84n8vn7h1o4"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_kp3kt"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_u1qur"]
@@ -15,8 +15,10 @@
 [ext_resource type="Script" path="res://Bubble.gd" id="13_3ew2s"]
 [ext_resource type="Texture2D" uid="uid://dvrpoy614nn8t" path="res://Assets/arrow.png" id="13_hop0t"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="14_qep0e"]
+[ext_resource type="Texture2D" uid="uid://bwqac7p4oi746" path="res://Assets/benbubble.png" id="15_p33cc"]
 [ext_resource type="Texture2D" uid="uid://bq316y4ju3k2e" path="res://Assets/cute_bubble.png" id="15_uaenn"]
 [ext_resource type="AudioStream" uid="uid://b4pgiv5oof2v6" path="res://Music & Sound/SFX/BB SFX - Death.wav" id="16_n1uwf"]
+[ext_resource type="Texture2D" uid="uid://bslikayub7km1" path="res://Assets/benbubble_death.png" id="16_ruw2q"]
 [ext_resource type="AudioStream" uid="uid://b0hkx3ynh8ilj" path="res://Music & Sound/SFX/BB SFX - Collect.wav" id="17_10uih"]
 [ext_resource type="Script" path="res://Air.gd" id="18_vqtrb"]
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="19_0exjo"]
@@ -28,7 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://cbqf0djox6c2i" path="res://Assets/space2.png" id="25_cog12"]
 [ext_resource type="Script" path="res://SpeedrunTimer.gd" id="26_780ol"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="27_puxan"]
-[ext_resource type="AudioStream" uid="uid://cb7n0wtfrrmc2" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="28_pv0hx"]
+[ext_resource type="AudioStream" uid="uid://bc368r47t2b41" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="28_pv0hx"]
+[ext_resource type="AudioStream" uid="uid://bnjd7siernmhl" path="res://Music & Sound/Music/BenSong.wav" id="32_qbhmi"]
 
 [sub_resource type="Curve" id="Curve_5awa3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
@@ -549,6 +552,38 @@ alpha_curve = SubResource("CurveTexture_r8wvk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa2f3"]
 size = Vector2(147, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nuxx"]
+atlas = ExtResource("15_p33cc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbg8o"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06ra4"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imbef"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1sbk"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6tfy"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppg1v"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdbyl"]
+atlas = ExtResource("16_ruw2q")
+region = Rect2(96, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
 atlas = ExtResource("14_qep0e")
 region = Rect2(0, 0, 16, 16)
@@ -591,6 +626,40 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68qjq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nuxx")
+}],
+"loop": true,
+"name": &"Ben",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbg8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06ra4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imbef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1sbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6tfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppg1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdbyl")
+}],
+"loop": false,
+"name": &"BenDeath",
+"speed": 90.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dyqt2")
@@ -650,6 +719,29 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 color = Color(1, 0.996078, 0.976471, 0.152941)
 
+[sub_resource type="Curve" id="Curve_3p5lh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mr2rt"]
+curve = SubResource("Curve_3p5lh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e054"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(80, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 52.77
+angle_min = -161.8
+angle_max = 129.4
+direction = Vector3(-100, 0, 0)
+spread = 4.551
+initial_velocity_min = 1500.0
+initial_velocity_max = 1500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_mr2rt")
+color = Color(1, 1, 1, 0.313726)
+
 [sub_resource type="LabelSettings" id="LabelSettings_xa4sa"]
 font = ExtResource("27_puxan")
 font_size = 48
@@ -689,7 +781,7 @@ amount = 16384
 process_material = SubResource("ParticleProcessMaterial_ys18g")
 lifetime = 180.0
 fixed_fps = 60
-visibility_rect = Rect2(-1500.22, -16927.5, 3001.04, 16929.5)
+visibility_rect = Rect2(-5000, -16927.5, 12000, 16929.5)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -4344,8 +4436,8 @@ position = Vector2(64, 0)
 position = Vector2(-1463, 94)
 rotation = 0.785398
 script = ExtResource("6_ktyjc")
-speed = 0.15
-wait = 3.5
+speed = 0.4
+wait = 1.5
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Cannons/Cannon17"]
@@ -4543,9 +4635,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_smjqs")
 animation = &"Empty"
 
-[node name="BrokenSphere_Area" type="Area2D" parent="BrokenSphere"]
+[node name="BrokenSphere_Area_Easy" type="Area2D" parent="BrokenSphere"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenSphere/BrokenSphere_Area_Easy"]
 shape = SubResource("CircleShape2D_ebx7b")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BrokenSphere"]
@@ -4895,6 +4987,14 @@ texture = ExtResource("22_asj2b")
 lifetime = 0.04
 fixed_fps = 60
 
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Air"]
+position = Vector2(24, 0)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_3e054")
+texture = ExtResource("22_asj2b")
+lifetime = 0.04
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
@@ -5133,7 +5233,9 @@ shape = SubResource("RectangleShape2D_0l4vx")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_pv0hx")
-autoplay = true
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_qbhmi")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.670588)
@@ -5151,7 +5253,7 @@ texture = ExtResource("13_hop0t")
 [connection signal="timeout" from="Cannons/Cannon11/StaticBody2D/Timer" to="Cannons/Cannon11" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon13/StaticBody2D/Timer" to="Cannons/Cannon13" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon15/StaticBody2D/Timer" to="Cannons/Cannon15" method="_on_timer_timeout"]
-[connection signal="area_entered" from="BrokenSphere/BrokenSphere_Area" to="CanvasLayer/SpeedrunTimer" method="_on_broken_sphere_area_area_entered"]
+[connection signal="area_entered" from="BrokenSphere/BrokenSphere_Area_Easy" to="CanvasLayer/SpeedrunTimer" method="_on_broken_sphere_area_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint4" to="Bubble" method="_on_hint_4_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint3" to="Bubble" method="_on_hint_3_area_entered"]
 [connection signal="area_entered" from="Hints/HintAreas/Hint1" to="Bubble" method="_on_hint_1_area_entered"]

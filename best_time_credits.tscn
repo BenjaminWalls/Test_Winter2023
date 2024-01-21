@@ -56,11 +56,10 @@ script = ExtResource("1_xcp6a")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.788235, 0.392157, 0.545098, 1)
+color = Color(0.454902, 0.360784, 0.988235, 1)
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.643137, 0.662745, 0.831373, 1)
 texture_filter = 1
 layout_mode = 0
 offset_right = 1920.0

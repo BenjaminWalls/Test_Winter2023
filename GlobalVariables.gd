@@ -2,7 +2,8 @@ extends Node
 
 var BlowOrSuck = false
 var theTime
-var ben = false
+var benAndHard = false
+var benMode = false
 
 func retrieveTime(t):
 	theTime=t
@@ -10,14 +11,20 @@ func retrieveTime(t):
 func sendTime():
 	return theTime
 
-func retrieveBen():
-	return ben
+func getBenAndHard():
+	return benAndHard
 
-func sendBen(bo):
-	ben = bo
+func setBenAndHard(bo):
+	benAndHard = bo
 
 func getBlowOrSuck():
 	return BlowOrSuck
 
 func setBlowOrSuck(bos):
 	BlowOrSuck=bos
+
+func setBenMode(bm):
+	benMode=bm
+
+func getBenMode():
+	return benMode

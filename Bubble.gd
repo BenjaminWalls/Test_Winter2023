@@ -6,6 +6,12 @@ var vel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GlobalVariables.getBenMode():
+		get_node("BubbleRigid/AnimatedSprite2D").play("Ben")
+		get_parent().get_node("Music2").play()
+	else:
+		get_node("BubbleRigid/AnimatedSprite2D").play("default")
+		get_parent().get_node("Music").play()
 	#print(pieces)
 	pass # Replace with function body.
 
@@ -22,7 +28,10 @@ func _process(_delta):
 func _on_bubble_area_area_entered(area):
 	if area.name=="Spike_Area" or area.name=="Fireball_Area" or area.name=="Cannonball_Area":
 		get_node("BubbleRigid/Bubble_Area").queue_free()
-		$BubbleRigid/AnimatedSprite2D.play("Pop")
+		if GlobalVariables.getBenMode():
+			$BubbleRigid/AnimatedSprite2D.play("BenDeath")
+		else:
+			$BubbleRigid/AnimatedSprite2D.play("Pop")
 		$Death.play()
 		get_parent().get_node("Music").stop()
 		Engine.set_time_scale(0.05)
@@ -81,10 +90,15 @@ func _on_bubble_area_area_entered(area):
 		$BubbleRigid/AnimatedSprite2D.play("fast")
 		SceneTransition.change_scene("res://Easy_demo.tscn")
 		#DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
-	elif area.name=="BrokenSphere_Area" and pieces>=5:
+	elif area.name=="BrokenSphere_Area_Easy" and pieces>=5:
 		#$BubbleRigid/AnimatedSprite2D.play("fast")
+		GlobalVariables.setBenAndHard(true)
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		SceneTransition.complete_scene("res://best_time_credits.tscn")
+	elif area.name=="BrokenSphere_Area_Hard" and pieces>=5:
+		#$BubbleRigid/AnimatedSprite2D.play("fast")
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+		SceneTransition.complete_scene("res://best_time_credits_hard.tscn")
 	elif area.name=="SpikeArea":
 		get_parent().get_node("TutorialTextandAreas/TutorialLabel3").visible=true
 		get_parent().get_node("PopUp").play()
