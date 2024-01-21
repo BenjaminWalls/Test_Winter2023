@@ -1,6 +1,7 @@
-[gd_scene load_steps=145 format=3 uid="uid://cd2eepkckw3vn"]
+[gd_scene load_steps=147 format=3 uid="uid://cd2eepkckw3vn"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_pmr17"]
+[ext_resource type="Script" path="res://demo_level.gd" id="1_r17tq"]
 [ext_resource type="Script" path="res://Bubble.gd" id="2_dmicb"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_u68up"]
 [ext_resource type="Texture2D" uid="uid://ddtfhyonjc4sj" path="res://Assets/cute_bubble_popped.png" id="3_hw0c1"]
@@ -28,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bslikayub7km1" path="res://Assets/benbubble_death.png" id="15_v2w3u"]
 [ext_resource type="AudioStream" uid="uid://b4pgiv5oof2v6" path="res://Music & Sound/SFX/BB SFX - Death.wav" id="18_n5i8v"]
 [ext_resource type="AudioStream" uid="uid://b0hkx3ynh8ilj" path="res://Music & Sound/SFX/BB SFX - Collect.wav" id="19_3ieb7"]
+[ext_resource type="AudioStream" uid="uid://crw70b5wesaqe" path="res://Music & Sound/SFX/BenDeath.wav" id="20_hlcjb"]
 [ext_resource type="AudioStream" uid="uid://cwvng8a67agj1" path="res://Music & Sound/SFX/BB SFX - Blow.wav" id="23_k2lq2"]
 [ext_resource type="AudioStream" uid="uid://bc368r47t2b41" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="27_5h6wt"]
 [ext_resource type="Texture2D" uid="uid://dvrpoy614nn8t" path="res://Assets/arrow.png" id="29_n6sau"]
@@ -775,6 +777,7 @@ size = Vector2(105, 915)
 size = Vector2(253, 456)
 
 [node name="DemoLevel" type="Node2D"]
+script = ExtResource("1_r17tq")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -6323,6 +6326,9 @@ stream = ExtResource("18_n5i8v")
 [node name="Collect" type="AudioStreamPlayer" parent="Bubble"]
 stream = ExtResource("19_3ieb7")
 volume_db = -5.0
+
+[node name="BenDeath" type="AudioStreamPlayer" parent="Bubble"]
+stream = ExtResource("20_hlcjb")
 
 [node name="Air" type="Node2D" parent="."]
 position = Vector2(66, -33)

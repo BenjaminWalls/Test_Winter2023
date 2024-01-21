@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://qiuld2doc6ee"]
+[gd_scene load_steps=120 format=3 uid="uid://qiuld2doc6ee"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_b3njx"]
 [ext_resource type="Texture2D" uid="uid://rssvirw4y8om" path="res://Assets/spike.png" id="2_g5plj"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b4kcugk52b1tn" path="res://Assets/air.png" id="19_i23bc"]
 [ext_resource type="Script" path="res://PushBubble.gd" id="20_if3ns"]
 [ext_resource type="AudioStream" uid="uid://dh6r8vg1uqy7p" path="res://Music & Sound/SFX/BB SFX - Finish.wav" id="20_oqqu4"]
+[ext_resource type="AudioStream" uid="uid://crw70b5wesaqe" path="res://Music & Sound/SFX/BenDeath.wav" id="21_isjjp"]
 [ext_resource type="Texture2D" uid="uid://wdjb3md7ct7r" path="res://Assets/space3.png" id="21_uxonw"]
 [ext_resource type="Texture2D" uid="uid://cvmhbfhiencvt" path="res://Assets/space1.png" id="22_107ip"]
 [ext_resource type="Texture2D" uid="uid://cbqf0djox6c2i" path="res://Assets/space2.png" id="23_bgclu"]
@@ -1233,6 +1234,9 @@ pitch_scale = 0.7
 [node name="Finish" type="AudioStreamPlayer" parent="Bubble"]
 stream = ExtResource("20_oqqu4")
 volume_db = -10.0
+
+[node name="BenDeath" type="AudioStreamPlayer" parent="Bubble"]
+stream = ExtResource("21_isjjp")
 
 [node name="Air" type="Node2D" parent="."]
 position = Vector2(66, -33)

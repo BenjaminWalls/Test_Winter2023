@@ -8,10 +8,8 @@ var vel
 func _ready():
 	if GlobalVariables.getBenMode():
 		get_node("BubbleRigid/AnimatedSprite2D").play("Ben")
-		get_parent().get_node("Music2").play()
 	else:
 		get_node("BubbleRigid/AnimatedSprite2D").play("default")
-		get_parent().get_node("Music").play()
 	#print(pieces)
 	pass # Replace with function body.
 
@@ -30,10 +28,12 @@ func _on_bubble_area_area_entered(area):
 		get_node("BubbleRigid/Bubble_Area").queue_free()
 		if GlobalVariables.getBenMode():
 			$BubbleRigid/AnimatedSprite2D.play("BenDeath")
+			$BenDeath.play()
 		else:
 			$BubbleRigid/AnimatedSprite2D.play("Pop")
-		$Death.play()
+			$Death.play()
 		get_parent().get_node("Music").stop()
+		get_parent().get_node("Music2").stop()
 		Engine.set_time_scale(0.05)
 		await get_tree().create_timer(0.14).timeout
 		Engine.set_time_scale(1)
@@ -87,7 +87,8 @@ func _on_bubble_area_area_entered(area):
 		#print(pieces)
 	elif area.name=="BrokenSphere_Area_Tutorial" and pieces>=5:
 		$Finish.play()
-		$BubbleRigid/AnimatedSprite2D.play("fast")
+		if GlobalVariables.getBenMode()==false:
+			$BubbleRigid/AnimatedSprite2D.play("fast")
 		SceneTransition.change_scene("res://Easy_demo.tscn")
 		#DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	elif area.name=="BrokenSphere_Area_Easy" and pieces>=5:
@@ -119,18 +120,21 @@ func _on_bubble_area_area_entered(area):
 func _on_hint_4_area_entered(area):
 	if area.name=="Bubble_Area":
 		get_parent().get_node("Hints/Hint4/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint4/Sprite2D2").set_modulate(Color(0,0,0,0))
 		get_parent().get_node("Hints/Hint4/GPUParticles2D").emitting=false
 
 
 func _on_hint_5_area_entered(area):
 	if area.name=="Bubble_Area":
 		get_parent().get_node("Hints/Hint5/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint5/Sprite2D2").set_modulate(Color(0,0,0,0))
 		get_parent().get_node("Hints/Hint5/GPUParticles2D").emitting=false
 
 
 func _on_hint_3_area_entered(area):
 	if area.name=="Bubble_Area":
 		get_parent().get_node("Hints/Hint3/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint3/Sprite2D2").set_modulate(Color(0,0,0,0))
 		get_parent().get_node("Hints/Hint3/GPUParticles2D").emitting=false
 
 
@@ -138,6 +142,7 @@ func _on_hint_1_area_entered(area):
 	if area.name=="Bubble_Area":
 		get_parent().get_node("CannonballAreas/DestroyCannonball").set_global_position(Vector2(-3130,-463))
 		get_parent().get_node("Hints/Hint/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint/Sprite2D2").set_modulate(Color(0,0,0,0))
 		get_parent().get_node("Hints/Hint/GPUParticles2D").emitting=false
 
 
@@ -147,5 +152,6 @@ func _on_hint_2_area_entered(area):
 		get_parent().get_node("CannonballAreas/DestroyCannonball4").set_global_position(Vector2(488,2963))
 		get_parent().get_node("CannonballAreas/DestroyCannonball5").set_global_position(Vector2(-267,2794))
 		get_parent().get_node("Hints/Hint2/Sprite2D").set_modulate(Color(0,0,0,0))
+		get_parent().get_node("Hints/Hint2/Sprite2D2").set_modulate(Color(0,0,0,0))
 		get_parent().get_node("Hints/Hint2/GPUParticles2D").emitting=false
 		get_parent().get_node("Arrow").set_global_position(Vector2(809,2064))
