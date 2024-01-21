@@ -5,9 +5,13 @@ var cuteballs = preload("res://Assets/cute_bubble_idle.png")
 
 func _ready():
 	# Enables The Challenge and Ben Mode
-	#if GlobalVariables.getBenAndHard()==true:
-	$"MenuOptions/The Challenge".set_disabled(false)
-	$MenuOptions/CheckBoxBen.set_disabled(false)
+	if GlobalVariables.getBenAndHard()==true:
+		$"MenuOptions/The Challenge".set_disabled(false)
+		$MenuOptions/CheckBoxBen.set_disabled(false)
+	if GlobalVariables.getBenMode():
+		$MenuOptions/CheckBoxBen.set_pressed(true)
+	if GlobalVariables.getBlowOrSuck():
+		$MenuOptions/CheckButton.set_pressed(true)
 	pass
 
 func _process(delta):

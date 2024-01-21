@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://ck84n8vn7h1o4"]
+[gd_scene load_steps=146 format=3 uid="uid://ck84n8vn7h1o4"]
 
 [ext_resource type="Script" path="res://Easy_demo.gd" id="1_aq5mc"]
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_kp3kt"]
@@ -33,7 +33,6 @@
 [ext_resource type="Script" path="res://SpeedrunTimer.gd" id="26_780ol"]
 [ext_resource type="FontFile" uid="uid://6ev5nblcm8oc" path="res://kongtext.ttf" id="27_puxan"]
 [ext_resource type="AudioStream" uid="uid://bc368r47t2b41" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="28_pv0hx"]
-[ext_resource type="AudioStream" uid="uid://bnjd7siernmhl" path="res://Music & Sound/Music/BenSong.wav" id="32_qbhmi"]
 
 [sub_resource type="Curve" id="Curve_5awa3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
@@ -4654,7 +4653,7 @@ visibility_rect = Rect2(-47.9888, -46.3209, 96.3999, 92.6741)
 [node name="SpherePieces" type="Node2D" parent="."]
 
 [node name="SpherePiece" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(11, 4154)
+position = Vector2(-160, -299)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -4677,7 +4676,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece2" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(6080, -205)
+position = Vector2(111, -344)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -4700,7 +4699,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece3" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(282, -5600)
+position = Vector2(-6, -474)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -4723,7 +4722,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece4" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-5327, -70)
+position = Vector2(66, -604)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -4746,7 +4745,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece5" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(1031, -2272)
+position = Vector2(-48, -638)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -5240,9 +5239,6 @@ shape = SubResource("RectangleShape2D_0l4vx")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_pv0hx")
 
-[node name="Music2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_qbhmi")
-
 [node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.670588)
 texture_filter = 1
@@ -5288,6 +5284,7 @@ texture = ExtResource("13_hop0t")
 [connection signal="area_entered" from="StopFan" to="Fans/Fan10/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan22/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 [connection signal="area_entered" from="StopFan" to="Fans/Fan23/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
+[connection signal="area_entered" from="StopFan" to="Fans/Fan24/StaticBody2D/Fan" method="_on_stop_fan_area_entered"]
 
 [editable path="Fireballs/Fireball7"]
 [editable path="Fireballs/Fireball8"]

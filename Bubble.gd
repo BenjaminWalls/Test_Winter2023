@@ -33,7 +33,6 @@ func _on_bubble_area_area_entered(area):
 			$BubbleRigid/AnimatedSprite2D.play("Pop")
 			$Death.play()
 		get_parent().get_node("Music").stop()
-		get_parent().get_node("Music2").stop()
 		Engine.set_time_scale(0.05)
 		await get_tree().create_timer(0.14).timeout
 		Engine.set_time_scale(1)

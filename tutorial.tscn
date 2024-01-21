@@ -1196,7 +1196,7 @@ process_material = SubResource("ParticleProcessMaterial_yat2s")
 lifetime = 1.5
 
 [node name="Bubble" type="Node2D" parent="."]
-position = Vector2(-6, 5)
+position = Vector2(6869, -109)
 script = ExtResource("15_vhta7")
 metadata/_edit_group_ = true
 

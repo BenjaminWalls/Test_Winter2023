@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://cd2eepkckw3vn"]
+[gd_scene load_steps=146 format=3 uid="uid://cd2eepkckw3vn"]
 
 [ext_resource type="TileSet" uid="uid://bmulvo3xdngcb" path="res://THE_tileset.tres" id="1_pmr17"]
 [ext_resource type="Script" path="res://demo_level.gd" id="1_r17tq"]
@@ -33,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://cwvng8a67agj1" path="res://Music & Sound/SFX/BB SFX - Blow.wav" id="23_k2lq2"]
 [ext_resource type="AudioStream" uid="uid://bc368r47t2b41" path="res://Music & Sound/Music/Bubble Balls - BLOW!!!.mp3" id="27_5h6wt"]
 [ext_resource type="Texture2D" uid="uid://dvrpoy614nn8t" path="res://Assets/arrow.png" id="29_n6sau"]
-[ext_resource type="AudioStream" uid="uid://bnjd7siernmhl" path="res://Music & Sound/Music/BenSong.wav" id="32_86lch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wnk2"]
 atlas = ExtResource("2_u68up")
@@ -6052,7 +6051,7 @@ visibility_rect = Rect2(-47.9888, -46.3209, 96.3999, 92.6741)
 [node name="SpherePieces" type="Node2D" parent="."]
 
 [node name="SpherePiece" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(11, 4154)
+position = Vector2(-34, -213)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6075,7 +6074,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece2" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(6080, -205)
+position = Vector2(-7, -443)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6098,7 +6097,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece3" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(282, -5600)
+position = Vector2(-159, -520)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6121,7 +6120,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece4" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(-5327, -70)
+position = Vector2(92, -545)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6144,7 +6143,7 @@ process_material = SubResource("ParticleProcessMaterial_eu0dj")
 lifetime = 1.5
 
 [node name="SpherePiece5" type="RigidBody2D" parent="SpherePieces"]
-position = Vector2(1031, -2272)
+position = Vector2(-191, -665)
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
@@ -6184,6 +6183,13 @@ process_material = SubResource("ParticleProcessMaterial_phy71")
 lifetime = 2.0
 visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Hint"]
+modulate = Color(1, 1, 1, 0.54902)
+texture_filter = 1
+position = Vector2(-19, 0)
+rotation = 3.14159
+texture = ExtResource("29_n6sau")
+
 [node name="Hint2" type="Node2D" parent="Hints"]
 position = Vector2(-1311, -48)
 metadata/_edit_group_ = true
@@ -6199,6 +6205,13 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_phy71")
 lifetime = 2.0
 visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Hint2"]
+modulate = Color(1, 1, 1, 0.54902)
+texture_filter = 1
+position = Vector2(0, 25)
+rotation = 1.5708
+texture = ExtResource("29_n6sau")
 
 [node name="Hint3" type="Node2D" parent="Hints"]
 position = Vector2(-660, -1480)
@@ -6216,6 +6229,13 @@ process_material = SubResource("ParticleProcessMaterial_phy71")
 lifetime = 2.0
 visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Hint3"]
+modulate = Color(1, 1, 1, 0.54902)
+texture_filter = 1
+position = Vector2(-16, -16)
+rotation = -2.35619
+texture = ExtResource("29_n6sau")
+
 [node name="Hint4" type="Node2D" parent="Hints"]
 position = Vector2(845, -1369)
 metadata/_edit_group_ = true
@@ -6232,6 +6252,13 @@ process_material = SubResource("ParticleProcessMaterial_phy71")
 lifetime = 2.0
 visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Hint4"]
+modulate = Color(1, 1, 1, 0.54902)
+texture_filter = 1
+position = Vector2(12, -28)
+rotation = -1.309
+texture = ExtResource("29_n6sau")
+
 [node name="Hint5" type="Node2D" parent="Hints"]
 position = Vector2(1363, -489)
 metadata/_edit_group_ = true
@@ -6247,6 +6274,12 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_phy71")
 lifetime = 2.0
 visibility_rect = Rect2(-20.8297, -20.9438, 41.7253, 41.8773)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Hint5"]
+modulate = Color(1, 1, 1, 0.54902)
+texture_filter = 1
+position = Vector2(23, 1)
+texture = ExtResource("29_n6sau")
 
 [node name="HintAreas" type="Node2D" parent="Hints"]
 
@@ -6610,9 +6643,6 @@ texture_filter = 1
 position = Vector2(2034, 2849)
 rotation = -2.35619
 texture = ExtResource("29_n6sau")
-
-[node name="Music2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_86lch")
 
 [connection signal="timeout" from="Cannons/Cannon4/StaticBody2D/Timer" to="Cannons/Cannon4" method="_on_timer_timeout"]
 [connection signal="timeout" from="Cannons/Cannon17/StaticBody2D/Timer" to="Cannons/Cannon17" method="_on_timer_timeout"]
